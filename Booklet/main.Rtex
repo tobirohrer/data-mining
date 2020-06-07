@@ -1,0 +1,37 @@
+%Gruppennummer
+\newcommand{\Gruppe}{14}
+
+\input{Inputs/inputs}
+\input{Inputs/config}
+\begin{document}
+	% Header
+	\input{Inputs/Titlepage}
+	
+	% Regelungen
+	% \input{Inputs/Regelungen} % Auskommentieren!
+
+	\pagebreak	
+	\input{Content/Zusammenfassung}
+	
+	% Beginn Inhalt
+	\pagebreak
+	\pagenumbering{arabic}
+	\input{Content/AB1}
+	<<chunk1>>=
+  X = 2:10
+  summary(X)
+  
+  @
+	% Ende Inhalt
+	
+	% Anhang
+	\pagebreak
+	\pagenumbering{Roman}
+	\input{Content/Anhang}
+	
+	\pagebreak
+	\addcontentsline{toc}{section}{Literatur}
+	\bibliography{lit}
+	\bibliographystyle{chicago}
+\end{document}
+

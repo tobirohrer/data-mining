@@ -1,0 +1,8 @@
+\babel@toc {ngerman}{}
+\contentsline {section}{Zusammenfassung}{ii}{section*.2}%
+\contentsline {section}{\numberline {1}Aufgabe 2: Musterthema$_2$ in Musterprogramm$_2$}{1}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Unterabschnitt 1}{1}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Unterabschnitt 2}{1}{subsection.1.2}%
+\contentsline {section}{Anhang}{I}{section*.3}%
+\contentsline {subsection}{Quellcode zu Aufgabe 1}{I}{section*.4}%
+\contentsline {subsection}{Quellcode zu Aufgabe 2}{II}{section*.5}%
