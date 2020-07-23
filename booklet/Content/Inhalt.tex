@@ -1,0 +1,41 @@
+\section{Aufgabe 1: Entscheidungsbäume}
+\subsection{Feature Engineering}
+\subsubsection{Fehlende Werte}
+
+Zunächst wurde der zu untersuchende Datensatz auf fehlende Werte untersucht. Im ersten Schritt wurden insgesamt 834 der 34236 Beobachtungen aus dem Datensatz entfernt, in denen die Zielvariable \emph{RainTomorrow} nicht vorhanden ist.
+
+
+In einem nächsten Schritt werden die Spalten aus dem Datensatz entfernt, in denen mehr als 40\% der beinhaltenden Variablen fehlen. Namentlich werden somit die Spalten \emph{Evaporation, Sunshine, Cloud9am sowie Cloud3pm} aus dem Datensatz entfernt. Der Schwellwert von 40\% wurde empirisch festgelegt und hat zu den besten Klassifizierungsergebnissen geführt.
+
+Des Weiteren werden Beobachtungen aus dem Datensatz entfernt, von denen mehr als 50\% der Variablen fehlen.
+
+Die übrig gebliebenen Datensätze sind noch immer nicht frei von fehlenden Werten. Um diese zu ersetzen werden für kategorische und numerische Variablen verschiedene Strategien verfolgt. Für die \emph{Imputation} von numerischen Werten wird der Median der jeweiligen Variablen verwendet. Für kategorielle Variablen hingegen wird der am öftesten vorkommende Wert verwendet. Wichtig bei der Ermittlung des Medians bzw. des meist vorkommenden Wertes ist, dass dieser ausschließlich auf der Basis der Trainigsdaten ermittelt wird. Die Ermittlung auf Grund des gesamten Datensatzes würde eine \emph{Test-Train-Leakage} darstellen und ist zu vermeiden. Es muss davon ausgegangen werden, dass die Testdaten nicht bekannt sind. Die ermittelten Werte werden dann auf die Trainings und Testdaten angewendet.
+
+\subsubsection{Kategorische Werte}
+
+Um kategorische Werte behandeln zu können müssen diese in numerische Werte umkodiert werden. Hierbei werden für die binäre Variablen \emph{ RainToday und RainTomorrow} alle Werte in Boolean umgewandelt. Alle anderen kategorischen Variablen werden mit Hilfe des \emph{One-Hot-Encoding-Verfahrens} in numerische Werte umgewandelt. Eine einfache Zuteilung eines Zahlenwertes pro auftretender Variablenausprägung hat den Nachteil, dass dadurch eine metrische numerische Variable für ein gegebenenfalls nicht metrisch interpretierbares Merkmal entsteht. Für Entscheidungsbäume wäre dies kein Problem, jedoch sollte das Feature Engineering weitgehend unabhängig von dem verwendeten Klassifizierungsalgorithmus durchgeführt werden. 
+
+\subsubsection{Merkmalsaufteilung}
+Das Feld Datum wurde aufgeteilt.
+
+\subsubsection{Merkmalserstellung}
+
+Eine weit verbreitete Technik des Feature Engineerings ist die zusätzliche Erstellung von Merkmalen. Somit wurde die Variable \emph{MinMaxDif} erstellt. \emph{PressureDiff, HumidityDiff und WindSpeedDiff auch.}
+
+\subsubsection{Diskretisierung}
+
+Eine Diskretisierung von Variablen hat den Vorteil, ...
+Das Merkmal Monat wurde auf die verschiedenen Jahreszeiten diskretisiert.
+
+\subsubsection{Bereinigung von Ausreissern}
+
+\subsubsection{Auswahl von Variablen}
+
+
+\vspace{1cm}
+\subsection{Entscheidungsbäume}
+\pagebreak
+\section{Aufgabe 2: Musterthema$_2$ in Musterprogramm$_2$}
+\subsection{Unterabschnitt 1}
+\vspace{1cm}
+\subsection{Unterabschnitt 2}
