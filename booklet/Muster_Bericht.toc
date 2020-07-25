@@ -1,0 +1,20 @@
+\babel@toc {ngerman}{}
+\contentsline {section}{Regelungen}{ii}{section*.2}% 
+\contentsline {section}{Zusammenfassung}{iii}{section*.3}% 
+\contentsline {section}{\numberline {1}Aufgabe 1: Entscheidungsb\IeC {\"a}ume}{1}{section.1}% 
+\contentsline {subsection}{\numberline {1.1}Feature Engineering}{1}{subsection.1.1}% 
+\contentsline {subsubsection}{\numberline {1.1.1}Fehlende Werte}{1}{subsubsection.1.1.1}% 
+\contentsline {subsubsection}{\numberline {1.1.2}Kategorische Werte}{1}{subsubsection.1.1.2}% 
+\contentsline {subsubsection}{\numberline {1.1.3}Merkmalsaufteilung}{1}{subsubsection.1.1.3}% 
+\contentsline {subsubsection}{\numberline {1.1.4}Merkmalserstellung}{1}{subsubsection.1.1.4}% 
+\contentsline {subsubsection}{\numberline {1.1.5}Diskretisierung}{1}{subsubsection.1.1.5}% 
+\contentsline {subsubsection}{\numberline {1.1.6}Bereinigung von Ausreissern}{2}{subsubsection.1.1.6}% 
+\contentsline {subsubsection}{\numberline {1.1.7}Auswahl von Variablen}{2}{subsubsection.1.1.7}% 
+\contentsline {subsection}{\numberline {1.2}Entscheidungsb\IeC {\"a}ume}{2}{subsection.1.2}% 
+\contentsline {section}{\numberline {2}Aufgabe 2: Musterthema$_2$ in Musterprogramm$_2$}{3}{section.2}% 
+\contentsline {subsection}{\numberline {2.1}Unterabschnitt 1}{3}{subsection.2.1}% 
+\contentsline {subsection}{\numberline {2.2}Unterabschnitt 2}{3}{subsection.2.2}% 
+\contentsline {section}{Anhang}{I}{section*.4}% 
+\contentsline {subsection}{Quellcode zu Aufgabe 1}{I}{section*.5}% 
+\contentsline {subsection}{Quellcode zu Aufgabe 2}{II}{section*.6}% 
+\contentsline {section}{Literatur}{III}{section*.6}% 
