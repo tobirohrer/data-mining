@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7400 64-bit) (preloaded format=pdflatex 2020.4.23)  26 JUL 2020 19:41
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7400 64-bit) (preloaded format=pdflatex 2020.4.23)  26 JUL 2020 21:32
 entering extended mode
 **./Muster_Bericht.tex
 (Muster_Bericht.tex
@@ -737,8 +737,56 @@ This may cause the page layout to be inconsistent, however.
 
  <./Bilder/hda_fbmn.png>] [2]) (Content/Zusammenfassung.tex) [3] (Content/Aufga
 be_1.tex
-[1]) (Content/Aufgabe_2.tex [2]) (Content/Aufgabe_3.tex [3])
-(Content/Aufgabe_4.tex [4]) [5] (Content/Anhang.tex [1] [2] [3]) [4]
+Overfull \hbox (6.15411pt too wide) in paragraph at lines 25--28
+\T1/cmr/m/n/12 https://towardsdatascience.com/why-you-should-try-mean-encoding-
+17057262cd0 kei-ne Wis-sen-
+ []
+
+[1]
+<Bilder/treedefault.png, id=171, 1274.7625pt x 594.22pt>
+File: Bilder/treedefault.png Graphic file (type png)
+<use Bilder/treedefault.png>
+Package pdftex.def Info: Bilder/treedefault.png  used on input line 44.
+(pdftex.def)             Requested size: 338.58632pt x 157.83023pt.
+
+Overfull \hbox (19.17981pt too wide) in paragraph at lines 38--49
+\T1/cmr/m/n/12 Quelle: https://scikit-learn.org/stable/modules/generated/sklear
+n.tree.DecisionTreeClassifier.html 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<Bilder/treeMaxDepth8.png, id=172, 1238.6275pt x 560.0925pt>
+File: Bilder/treeMaxDepth8.png Graphic file (type png)
+<use Bilder/treeMaxDepth8.png>
+Package pdftex.def Info: Bilder/treeMaxDepth8.png  used on input line 55.
+(pdftex.def)             Requested size: 130.59859pt x 59.05501pt.
+<Bilder/treeMinImpurityDecrease.png, id=173, 1134.2375pt x 560.0925pt>
+File: Bilder/treeMinImpurityDecrease.png Graphic file (type png)
+<use Bilder/treeMinImpurityDecrease.png>
+Package pdftex.def Info: Bilder/treeMinImpurityDecrease.png  used on input line
+ 61.
+(pdftex.def)             Requested size: 130.59859pt x 64.48192pt.
+<Bilder/treeMaxLeafNodes.png, id=174, 1134.2375pt x 560.0925pt>
+File: Bilder/treeMaxLeafNodes.png Graphic file (type png)
+<use Bilder/treeMaxLeafNodes.png>
+Package pdftex.def Info: Bilder/treeMaxLeafNodes.png  used on input line 67.
+(pdftex.def)             Requested size: 130.59859pt x 64.48192pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 68--68
+[]\T1/cmr/m/n/12 Abbildung 4: |Ma-xi-ma-le
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--71
+
+ []
+
+[2]) (Content/Aufgabe_2.tex [3 <./Bilder/treedefault.png> <./Bilder/treeMaxDept
+h8.png> <./Bilder/treeMinImpurityDecrease.png> <./Bilder/treeMaxLeafNodes.png>]
+) (Content/Aufgabe_3.tex [4]) (Content/Aufgabe_4.tex [5]) [6]
+(Content/Anhang.tex [1] [2] [3]) [4]
 No file Muster_Bericht.bbl.
 
 AED: lastpage setting LastPage
@@ -748,17 +796,17 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 34.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 34.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 34.
 Package rerunfilecheck Info: File `Muster_Bericht.out' has not changed.
-(rerunfilecheck)             Checksum: B99D13469ACC79ABE8BCBF0B8BFF2120;1989.
+(rerunfilecheck)             Checksum: 99B5695D74CBEB10C8F83A280DA44487;1989.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 34.
  ) 
 Here is how much of TeX's memory you used:
- 10563 strings out of 480930
- 161126 string characters out of 2899292
- 444137 words of memory out of 3000000
- 26141 multiletter control sequences out of 15000+200000
+ 10608 strings out of 480930
+ 162239 string characters out of 2899292
+ 445390 words of memory out of 3000000
+ 26179 multiletter control sequences out of 15000+200000
  543387 words of font info for 53 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,11n,47p,1035b,338s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 41i,11n,47p,1029b,361s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\Tamara\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600
 \ecti1200.pk> <C:\Users\Tamara\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappe
 n/ec/dpi600\ecbx1728.pk> <C:\Users\Tamara\AppData\Local\MiKTeX\2.9\fonts/pk/ljf
@@ -766,9 +814,9 @@ our/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\Tamara\AppData\Local\MiKTeX\2.9\f
 onts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk> <C:\Users\Tamara\AppData\Local\M
 iKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\Tamara\AppD
 ata\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk>
-Output written on Muster_Bericht.pdf (12 pages, 139764 bytes).
+Output written on Muster_Bericht.pdf (13 pages, 763873 bytes).
 PDF statistics:
- 483 PDF objects out of 1000 (max. 8388607)
- 42 named destinations out of 1000 (max. 500000)
- 230 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 512 PDF objects out of 1000 (max. 8388607)
+ 45 named destinations out of 1000 (max. 500000)
+ 250 words of extra memory for PDF output out of 10000 (max. 10000000)
 
