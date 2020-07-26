@@ -1,0 +1,43 @@
+\section{Aufgabe 1: Entscheidungsbäume}
+\subsection{Feature Engineering}
+\subsubsection{Fehlende Werte}
+
+Zunächst wurde der betrachtete Datensatz auf fehlende Werte untersucht. Im ersten Schritt werden 834 Beobachtungen, welche keinen Wert für die Zielvariable \emph{RainTomorrow} aufweisen, aus dem Datensatz entfernt. Damit wurde die Anzahl an Beobachtungen auf 33402 reduziert.
+
+\noindent \hspace*{7mm}
+In einem nächsten Schritt werden die Spalten aus dem Datensatz entfernt, in denen mehr als 40\% der beinhaltenden Variablen keine validen Werte aufweisen. Namentlich werden somit die Spalten \emph{Evaporation, Sunshine, Cloud9am} sowie \emph{Cloud3pm} aus dem Datensatz entfernt. Der Schwellwert von 40\% wurde empirisch festgelegt und hat zu den besten Klassifizierungsergebnissen geführt.
+
+\noindent \hspace*{7mm}
+Des Weiteren werden Beobachtungen aus dem Datensatz entfernt, von denen mehr als 50\% der Variablen keine validen Werte zeigen. Das betrifft 55 Beobachtungen, sodass die Gesamtanzahl an Beobachtungen 33347 beträgt. Durch die ersten beiden Schritte wurden lediglich ca. 3\% der Beobachtungen entfernt.
+
+\noindent \hspace*{7mm}
+Die übrig gebliebenen Datensätze sind noch immer nicht frei von fehlenden Werten. Um diese zu ersetzen werden für kategorische und numerische Variablen verschiedene Strategien verfolgt. Für die \emph{Imputation} numerischer Werten wird der Median der jeweiligen Variablen verwendet, da dieser im Vergleich zum Mittelwert robuster gegenüber Ausreißern ist. Für kategorielle Variablen hingegen wird der am häufigsten vorkommende Wert verwendet. Wichtig bei der Ermittlung des Medians bzw. des häufigsten Wertes ist, dass dieser ausschließlich getrennt für Trainigs- und Testdaten ermittelt wird. Die Ermittlung auf Basis des gesamten Datensatzes würde eine \emph{Test-Train-Leakage} darstellen und ist zu vermeiden. Es muss davon ausgegangen werden, dass die Testdaten nicht bekannt sind. Die jeweils ermittelten Werte werden dann auf die Trainings- und Testdaten angewendet.
+
+\subsubsection{Merkmalsaufteilung}
+Das Feld \emph{Datum} wurde in die Merkmale \emph{Year, Month} und \emph{Day} aufgeteilt.
+
+\subsubsection{Merkmalserstellung}
+Eine weit verbreitete Technik des Feature Engineerings ist die Erstellung zusätzlicher Merkmalen. Somit wurde die Variable \emph{MinMaxDiff} erstellt, welche die Differenz zwischen der minimalen und der maximalen Tages-Temperatur angibt. In gleicher Weise wurden die Variablen \emph{PressureDiff, HumidityDiff und WindSpeedDiff} erstellt.
+
+\subsubsection{Diskretisierung}
+Die Diskretisierung eines Merkmals kann eine Überanpassung bei der Erstellung von Modellen verhindern, indem der Wertebereich des Merkmals minimiert und somit generalisiert wird. Es sollte beachtet werden, dass der Informationsverlust durch die Diskretisierung nicht zu hoch ausfällt.
+
+\noindent \hspace*{7mm}
+Zu Testzwecken wird das neu erstellte Merkmal \emph{Month} in zwei weiteren Merkmalen diskretisiert. Zum einen wird das kategorische Merkmal \emph{Season} erstellt, welches angibt,  in welcher Jahreszeit der Monat liegt. Zum anderen gibt das Boolean Merkmal \emph{RainyMonth} an, ob es sich um einen in Erwartung regenreichen Monat handelt.
+
+\subsubsection{Kodierung kategorischer Werte}
+Um kategorische Werte für weitere Analysen versenden zu können, müssen diese in numerische Werte umkodiert werden. Hierbei werden für die binäre Variablen \emph{RainToday und RainTomorrow} alle Werte in Boolean umgewandelt. Das neu diskretisierte Merkmal \emph{Season} wird mittels \emph{One-Hot Encoding} in drei Boolean Spalten aufgeteilt. Eine einfache Zuteilung eines Zahlenwertes pro auftretender Variablenausprägung hat den Nachteil, dass dadurch eine metrische numerische Variable für ein gegebenenfalls nicht metrisch interpretierbares Merkmal entsteht. Für Entscheidungsbäume wäre dies kein Problem, jedoch sollte das Feature Engineering weitgehend unabhängig von dem verwendeten Klassifizierungsalgorithmus durchgeführt werden.
+
+\noindent \hspace*{7mm}
+Mit Hilfe des \emph{Target Encodings} werden die Merkmale \emph{Location, WindGustDir, WindDir9am} und \emph{WindDir3pm} verarbeitet. Dabei werden den jeweiligen Merkmalsausprägungen ihr Einfluss auf die Zielvariable zugeordent, also die bedingte Wahrscheinlichkeit, dass unter der Bedingung, dass z.B. Merkmal \emph{Location} für die Zielvariable (\emph{Target}) den Wert 1 (in unsrem Fall "Yes") annimmt. Zum Beispiel wird die Merkmalsausprägung "Perth" mit dem Wert 0.2 kodiert, wenn 20\% der jeweiligen Beobachtungen für die Zielvariable den Wert "Yes"  annehmen.  Somit wird keine zufällige Zuteilung von nummerischen Werten verteilt, sondern direkt einen Verbindung zu Zielvariable hergestellt. Ein Nachteil des Target Encoding ist, dass genau durch diese Verbindung zur Zielvariable die Wahrscheinlichkeit des Overfittings steigt (vgl. https://towardsdatascience.com/why-you-should-try-mean-encoding-17057262cd0   \gqq{keine Wissenschaftliche Quelle}).
+
+\subsubsection{Bereinigung von Ausreißern}
+
+\subsubsection{Variablenselektion}
+
+
+\vspace{1cm}
+\subsection{Entscheidungsbäume}
+\subsubsection{Default-Einstellungen}
+\subsubsection{Variationen}
+\subsubsection{Minimal Cost-Complexity-Pruning}
