@@ -1,0 +1,8 @@
+scikit-learn
+jupyter
+matplotlib
+pandas
+tensorflow
+graphviz
+eli5
+category-encoders
