@@ -1,5 +1,17 @@
 \section{Aufgabe 1: Entscheidungsbäume}
 \subsection{Feature Engineering}
+
+\subsection{Analyse der Zielvariable}
+
+Wie Abbildung \ref{fig:disc_target_variable} entnommen werden kann ist Ausprägung der Zielvariable ungleich auf beide Klassen verteilt. Die Bewertung der Klassifizierungsgenauigkeit des Modells sollte deshalb unter Berücksichtigung der \emph{Null Accuracy} stattfinden. Unter \emph{Null Accuracy} versteht man die Genauigkeit eines Modells, dass unabhängig von allen Eingaben immer die häufigst auftretende  Klasse vorhersagt. In unserem Fall würde ein Modell, welches immer Regen vorhersagt, eine Klassifizierungsgenauigkeit von 79,39\% erreichen.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width = 0.5\textwidth]{Bilder/distribution_target_variable}
+	\caption{Entschidungsbaum mit Default-Einstellungen}
+	\label{fig:disc_target_variable}
+\end{figure}
+
 \subsubsection{Fehlende Werte}
 
 Zunächst wurde der betrachtete Datensatz auf fehlende Werte untersucht. Im ersten Schritt werden 834 Beobachtungen, welche keinen Wert für die Zielvariable \emph{RainTomorrow} aufweisen, aus dem Datensatz entfernt. Damit wurde die Anzahl an Beobachtungen auf 33402 reduziert.\\
