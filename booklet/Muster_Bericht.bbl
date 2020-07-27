@@ -1,0 +1,15 @@
+\begin{thebibliography}{}
+
+\bibitem[\protect\citeauthoryear{Abadi, Agarwal, Barham, Brevdo, and
+  Others}{Abadi et~al.}{2015}]{tensorflow2015-whitepaper}
+Abadi, M., A.~Agarwal, P.~Barham, E.~Brevdo, and Others (2015).
+\newblock {TensorFlow}: Large-scale machine learning on heterogeneous systems.
+\newblock Software available from tensorflow.org.
+
+\bibitem[\protect\citeauthoryear{Géron}{Géron}{2017}]{geron2017hands-on}
+Geron, A. (2017).
+\newblock {\em Hands-on machine learning with Scikit-Learn and TensorFlow :
+  concepts, tools, and techniques to build intelligent systems}.
+\newblock Sebastopol, CA: O'Reilly Media.
+
+\end{thebibliography}
