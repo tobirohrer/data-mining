@@ -53,17 +53,18 @@ Um kategorische Werte für weitere Analysen verwenden zu können, müssen diese 
 \end{description}
 
 \subsubsection{Bereinigung von Ausreißern}
-%TODO Tamara
+Ausreißer können die Performance eines Modells mindern, indem sie als Hebelwerte agieren und somit die Schätzungen der Zielvariable verzerren. Aus diesem Grund werden die Merkmale des Datensatz hinsichtlich ihrer Ausreißer begutachtet. Es wird ersichtlich, dass nur die Merkmale \emph{Rainfall} und \emph{WindGustSpeed} abweichende Werte aufweisen. Das Enfernen dieser Werte aus dem Datensatz führt jedoch zu einer schlechteren Performance der im folgenden Abschnitt besprochenen Entscheidungsbäume. Deshalb werden die Beobachtungen nicht aus dem Datensatz entfernt. Zudem zählen die beiden Merkmale zu denjenige Merkmalen, die durch die Variablenselektion aussortiert und somit für weitere Modelle nicht mehr betrachtet werden.
 
 \subsubsection{Variablenselektion}
-%TODO Tamara
+Nach dem durchgeführten Feature Engineering verfügt der Datensatz über 28 Einflussvariablen. Durch eine Variablenselektion wird diese Anzahl verringert. Das hat den Vorteil, dass Modelle besser interpretierbar sind. Zudem steigert es die Performance von Modellen, indem nicht relevante Merkmale ausgeschlossen werden, wodurch auch die Wahrscheinlichkeit des Overfittings sinkt.\\
+\noindent \hspace*{7mm}
+Für den betrachteten Datensatz wird eine univariate Variablenselektion mit dem Modul \emph{SelectKBest} der Bibliothek \emph{sklearn} durchgeführt. Dabei werden die \textit{k=5} Merkmale ausgewählt, die den höchsten Wert der F-Statistik aufweisen. Dieser Wert gibt an, ob ein einzelnes Merkmal eine signifikante Verbesserung des Modells erzielt. Dazu wird ein Modell ohne dieser Variable mit einem Modell mit der beobachteten Variable verglichen. Als Ergebnis wurden  die Merkmale \emph{WindGustDir, Humidity9am, Humidity3pm, RainToday} und \emph{MinMaxDiff} ausgewählt.
 
 \vspace{1cm}
 \subsection{Entscheidungsbäume}
 %TODO: Quellen! Tobi
 Für die Erstelltung der Entscheidungsbäume wurde der Datensatz in eine Trainings- und eine Testmenge eingeteilt. Dabei beträgt das Verhältnis 8:2. 80\% der Daten sind genügend, um ein gutes Modell zu trainieren. 20\% sind eine ausreichende Menge, um einen genauen Testfehler und die Modellgüte zu bestimmen.
 \subsubsection{Default-Einstellungen}
-%TODO: Argumentation Overfitting mit Ergebnis auf Test und Trainignsdaten. Tamara
 Quelle: https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html\\
 Die Entscheidungsbäume werden mit dem Modul \emph{tree.DecistionTreeClassifier} erstellt. Im ersten Aufgabenteil werden dazu die Default-Einstellungen des Moduls genutzt.\\
 \noindent \hspace*{7mm}
@@ -74,16 +75,16 @@ Diese geben an, dass ein Baum immer maximal gebaut wird (\emph{max\_depth = None
 	\caption{Entschidungsbaum mit Default-Einstellungen}
 	\label{fig:treedefault}
 \end{figure}
-Es ist leicht zu erkennen, dass dieser Baum zu viele Knoten und Blätter enthält. Dem kann mit verschiedenen Einstellungen entgegengewirkt werden.
+Es ist leicht zu erkennen, dass dieser Baum zu viele Knoten und Blätter enthält und somit eine Überanpassung darstellt. Diese Überanpassung kann auch an dem Trainings- und Testfehler abgelesen werden. Der Trainingsfehler beträgt für den gebildeten Entscheidungsbaum 0.0005 und der Testfehler 0.2340. Der Testfehler ist damit höher als bei einem Modell, das zufällig entscheidet. Dem kann mit verschiedenen Einstellungen entgegengewirkt werden.
 \subsubsection{Variationen}
 %TODO: Beschreibiung einzelner Einstellungen Tamara
-Um einen übersichtlichen und brauchbaren Entscheidungsbam erzeugen zu können werden verschiedenen Einstellungen angewandt. Im Folgenden werden ausgewählte Variationen dargestellt und kurz besprochen. Bei der Visualisierung liegt der Fokus auf der Struktur des Baumes und nicht darauf, dass die einzelnen Knoten identifiziert werden können.\\
+Um einen übersichtlichen und brauchbaren Entscheidungsbam erzeugen zu können werden verschiedenen Einstellungen für die Parameter \emph{max\_depth, min\_ipurity\_decrease} und \emph{criterion} angewandt. Im Folgenden werden die Entscheidungsbäume dargestellt, deren Parameter mit Hilfe des \textbf{GridSearch Verfahrens} festgelegt wurden. Bei der Visualisierung liegt der Fokus auf der Struktur des Baumes und nicht darauf, dass die einzelnen Knoten identifiziert werden können.\\
 \begin{figure}[H]
     \centering
      \begin{minipage}{0.30\textwidth}
         \centering
-        \includegraphics[width=0.9\textwidth]{Bilder/treeMaxDepth8} % first figure itself
-        \caption{Maximale Tiefe von 8}
+        \includegraphics[width=0.9\textwidth]{Bilder/treeMaxDepth} % first figure itself
+        \caption{Maximale Tiefe von 5}
         \label{fig:treeMaxDepth}
     \end{minipage}\hfill
     \begin{minipage}{0.30\textwidth}
@@ -94,16 +95,19 @@ Um einen übersichtlichen und brauchbaren Entscheidungsbam erzeugen zu können w
     \end{minipage}\hfill
     \begin{minipage}{0.30\textwidth}
         \centering
-        \includegraphics[width=0.9\textwidth]{Bilder/treeMaxLeafNodes} % second figure itself
-        \caption{Maximale Blatt-Anzahl von 10}
-        \label{fig:treeMaxLeafNodes}
+        \includegraphics[width=0.9\textwidth]{Bilder/treeCriterion} % second figure itself
+        \caption{Entropie als Entscheidungskriterium}
+        \label{fig:treeCriterion}
     \end{minipage}
 \end{figure}
-\noindent \hspace*{7mm}
-In Abbildung \ref{fig:treeMaxDepth} wurde eine maximale Tiefe von acht angegeben. Mit dieser Anzahl an Stufen wurde eine bessere Genauigkeit (\emph{accuracy}) und ein geringerer Testfehler erreicht als mit anderen ausprobierten Werten. Trotz der geringen Tiefe ist der Entscheidungsbaum schon sehr unübersichtlich in der Visualisierung. Im Gegensatz zu den anderen Variationen sieht dieser Baum sehr \textbf{symmetrisch}, da jeder Ast gleich lang verfolgt wird und der Baum nicht an unterschiedlichen Tiefen abgeschnitten wird.\\
-\noindent \hspace*{7mm}
-In den Abbildungen \ref{fig:treeMinImpurityDecrease} und \ref{fig:treeMaxLeafNodes} ist diese Symmetrie nicht mehr zu erkennen. Mit der Einstellung \emph{min\_impurity\_decrease} wird festgelegt, welchen Anteil der Unschärfe ein weiterer Split reduzieren muss. Da das für jeden Knoten einzeln entschieden wird, werden nicht alle Äste bis zur selben Tiefe verfolgt. Bei der Einstellung der maximalen Anzahl an Blatt Knoten ...
-
+\begin{description}
+	\item[Maximale Tiefe]\hfill \\
+	In Abbildung \ref{fig:treeMaxDepth} wurde eine maximale Tiefe von \textbf{fünf} angegeben. Trotz der geringen Tiefe entstehen schon zu viele Blatt Knoten für eine übersichtliche Visualisierung. Im Gegensatz zu den anderen Variationen ist dieser Baum \textbf{symmetrisch}, da jeder Ast bis zur gleichen Tiefe verfolgt wird. Dieser Baum entspricht den ersten fünf Stufen des vorher erstellten Default-Entscheidungsbaum, da der \emph{max\_depth}-Parameter den Baum einfach an der gegebenen Stufe abschneidet.
+	\item[Unschärfe-Reduktion]\hfill \\ 
+	In Abbildung \ref{fig:treeMinImpurityDecrease} wurde mit dem Parameter \emph{min\_impurity\_decrease} festgelegt, wie viel ein weiterer Knoten die \textbf{Unschärfe} des Entscheidungsbaumes reduzieren muss, um ausgebildet zu werden. Dabei wird jeder zu bildende Knoten einzeln bewertet, sodass es zu einem nicht symmetrischen Baum kommen kann, da nicht jeder Ast bis in die gleiche Tiefe verfolgt wird.
+	\item[Entscheidungskriterium]\hfill \\ 
+	In Abbildungen \ref{fig:treeCriterion} wurde zusätzlich zur maximalen Tiefe von fünf das Entscheidungskriterium angepasst. Hier wird mit Hilfe der Entropie statt des Gini-Wertes entschieden, welcher Split durchgeführt wird. Die Struktur des Baumes wird dadurch nicht geändert, jedoch können die Knoten voneinander abweichen. Die Entropie erzeugt bei sonst gleich bleibenden Parametern einen Entscheidungsbaum, der einen kleineren Testfehler aufweist.
+\end{description}
 %TODO Grid Search Tobi
 \subsubsection{Minimal Cost-Complexity-Pruning}
 %TODO Tamara
