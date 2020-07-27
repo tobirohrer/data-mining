@@ -53,16 +53,17 @@ Um kategorische Werte für weitere Analysen verwenden zu können, müssen diese 
 \end{description}
 
 \subsubsection{Bereinigung von Ausreißern}
+%TODO Tamara
 
 \subsubsection{Variablenselektion}
-
-
-
+%TODO Tamara
 
 \vspace{1cm}
 \subsection{Entscheidungsbäume}
+%TODO: Quellen! Tobi
 Für die Erstelltung der Entscheidungsbäume wurde der Datensatz in eine Trainings- und eine Testmenge eingeteilt. Dabei beträgt das Verhältnis 8:2. 80\% der Daten sind genügend, um ein gutes Modell zu trainieren. 20\% sind eine ausreichende Menge, um einen genauen Testfehler und die Modellgüte zu bestimmen.
 \subsubsection{Default-Einstellungen}
+%TODO: Argumentation Overfitting mit Ergebnis auf Test und Trainignsdaten. Tamara
 Quelle: https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html\\
 Die Entscheidungsbäume werden mit dem Modul \emph{tree.DecistionTreeClassifier} erstellt. Im ersten Aufgabenteil werden dazu die Default-Einstellungen des Moduls genutzt.\\
 \noindent \hspace*{7mm}
@@ -75,6 +76,7 @@ Diese geben an, dass ein Baum immer maximal gebaut wird (\emph{max\_depth = None
 \end{figure}
 Es ist leicht zu erkennen, dass dieser Baum zu viele Knoten und Blätter enthält. Dem kann mit verschiedenen Einstellungen entgegengewirkt werden.
 \subsubsection{Variationen}
+%TODO: Beschreibiung einzelner Einstellungen Tamara
 Um einen übersichtlichen und brauchbaren Entscheidungsbam erzeugen zu können werden verschiedenen Einstellungen angewandt. Im Folgenden werden ausgewählte Variationen dargestellt und kurz besprochen. Bei der Visualisierung liegt der Fokus auf der Struktur des Baumes und nicht darauf, dass die einzelnen Knoten identifiziert werden können.\\
 \begin{figure}[H]
     \centering
@@ -101,8 +103,10 @@ Um einen übersichtlichen und brauchbaren Entscheidungsbam erzeugen zu können w
 In Abbildung \ref{fig:treeMaxDepth} wurde eine maximale Tiefe von acht angegeben. Mit dieser Anzahl an Stufen wurde eine bessere Genauigkeit (\emph{accuracy}) und ein geringerer Testfehler erreicht als mit anderen ausprobierten Werten. Trotz der geringen Tiefe ist der Entscheidungsbaum schon sehr unübersichtlich in der Visualisierung. Im Gegensatz zu den anderen Variationen sieht dieser Baum sehr \textbf{symmetrisch}, da jeder Ast gleich lang verfolgt wird und der Baum nicht an unterschiedlichen Tiefen abgeschnitten wird.\\
 \noindent \hspace*{7mm}
 In den Abbildungen \ref{fig:treeMinImpurityDecrease} und \ref{fig:treeMaxLeafNodes} ist diese Symmetrie nicht mehr zu erkennen. Mit der Einstellung \emph{min\_impurity\_decrease} wird festgelegt, welchen Anteil der Unschärfe ein weiterer Split reduzieren muss. Da das für jeden Knoten einzeln entschieden wird, werden nicht alle Äste bis zur selben Tiefe verfolgt. Bei der Einstellung der maximalen Anzahl an Blatt Knoten ...
-\subsubsection{Minimal Cost-Complexity-Pruning}
 
+%TODO Grid Search Tobi
+\subsubsection{Minimal Cost-Complexity-Pruning}
+%TODO Tamara
 
 
 
