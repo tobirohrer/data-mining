@@ -61,8 +61,10 @@ Für den betrachteten Datensatz wird eine univariate Variablenselektion mit dem 
 \vspace{1cm}
 \subsection{Entscheidungsbäume}
 %TODO: Quellen! Tobi
-Für die Erstelltung der Entscheidungsbäume wurde der Datensatz in eine Trainings- und eine Testmenge eingeteilt. Dabei beträgt das Verhältnis 8:2. 80\% der Daten sind genügend, um ein gutes Modell zu trainieren. 20\% sind eine ausreichende Menge, um einen genauen Testfehler und die Modellgüte zu bestimmen.
-\subsubsection{Default-Einstellungen}
+\subsubsection{Aufteilung in Trainings- und Testdaten}
+Um das Modell nach Abschluss anhand der Klassifizierungsgenauigkeit bewerten zu können, sollte der Datensatz in Trainings- und Testdaten aufgeteilt werden. Die Aufteilung und eine anschließende Bewertung anhand der Testdaten ermöglicht eine Einschätzung der Generalisierungsfähigkeit des Modells. Als Aufteilungsverhältnis wurde 20\% Testdaten und 80\% Trainingsdaten gewählt. 20\% der Daten entsprechen 6670 Datensätzen und bilden eine ausreichend große Menge um die Modellgüte zu bestimmen. Die Wahl des Aufteilungsverhältnisses wurde außerdem nach den Empfehlungen aus \cite{geron2017hands-on} gewählt.
+
+\subsubsection{Standard Einstellungen}
 Quelle: https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html\\
 Die Entscheidungsbäume werden mit dem Modul \emph{tree.DecistionTreeClassifier} erstellt. Im ersten Aufgabenteil werden dazu die Default-Einstellungen des Moduls genutzt.\\
 \noindent \hspace*{7mm}
