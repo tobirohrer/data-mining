@@ -6,6 +6,17 @@
 Im folgenden werden Hyperparameter beschrieben, sowie ihre Auswirkungen auf das Neuronale Netzwerk diskutiert.
 \begin{description}
 	\item[Anzahl der Neuronen im Hidden Layer]\hfill \\
+	%TODO: Eigentlcih sollte der Fehler auf die Trainingsdaten bei vielen Neuronen minimal sein. Irgendwie overfittet das Modell nicht klassisch.
+	Wenn keine $l_1$ oder $l_2$ Regularisierung, Dropout \cite{dropout} oder andere Regularisierungstechniken eingesetzt werden, steigt die Gefahr einer Überanpassung mit steigender Anzahl an Neuronen im Netzwerk.   
+	\begin{table}[h]
+		\centering
+		\begin{tabular}{l|llllll}
+			& 10000 & 1000 & 100  & 10   & 5    & 2    \\ \hline
+			Test Fehler      & 62    & 19,9 & 14,9 & 14.9 & 14.9 & 15   \\
+			Trainings Fehler & 188   & 43,5 & 35,1 & 35,0 & 35,0 & 35,1
+		\end{tabular}
+	\end{table}
+	
 	\item[Anzahl an Iterationen]\hfill \\
 	Die Anzahl der Iterationen, die benötigt werden, bis der Trainingsfehler nicht mehr sinkt, hängt stark von der gewählten Lernrate ab. Im weiteren Verlauf wird das einmalige Iterieren durch den gesamten Trainingsdatensatz als Epoche bezeichnet. In Abbildung \ref*{fig:learning_rates} ist der Trainingsverlauf während mehrerer Epochen für verschiedene Lernraten abgebildet. Bei einer Lernrate von 0.1 sinkt der Trainingsfehler nach 100 Epochen nicht mehr.
 	
