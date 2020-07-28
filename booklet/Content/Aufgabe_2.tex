@@ -53,5 +53,19 @@ Im Folgenden wird die Implementierung eines voll vernetzen Neuronalen Netzwerks 
 Um die Daten für das Training des Neuronalen Netzes effizient vorzubereiten wurde die \emph{Dataset}-API verwendet. Mit Hilfe der \emph{Dataset}-API wurde das zufällige Mischen der Trainingsdaten, sowie die Bereitstellung in Form von \emph{Mini-Batches} implementiert. Die Verwendung der \emph{Dataset}-API hat noch zusätzlich den Vorteil, dass die Ausführung von Vorbereitungsschritten der Daten perfekt mit dem Training des Neuronalen Netzes koordiniert und parallelisiert werden können.
 
 \subsubsection{Hyperparameter Suche}
-Um ein best Mögliches Modell für die vorliegenden Daten zu finden, wurde eine Hyperparameter-Suche implementiert.
-%TODO: Details und halt implementieren.
+Um ein best Mögliches Modell für die vorliegenden Daten zu finden, wurde eine automatisierte Suche nach den besten Hyperparameter-Kombination implementiert. Die zur Auswahl stehenden Hyperparameter mit ihren möglichen Ausprägungen sind in Tabelle \ref{table:hyper} aufgeführt.
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{ll}
+		\textbf{Hyperparameter}     & \textbf{Ausprägungen} \\ \hline
+		Anzahl Hidden Layer         & 0,1,2,3,4             \\
+		Anzahl Neuronen pro Schicht & 1,3,5,10,20,50,100    \\
+		Lernrate                    & 0,1;  0,05;  0.01     \\
+		Aktivierungsfunktion        & ReLU, Sigmoid, ELU \\
+		Dropout Wahrscheinlichkeit  & 0;  0.25;  0.5       
+	\end{tabular}
+	\caption{\label{table:hyper}Learn rates during training the model.}
+\end{table}
+
+Durch begrenzte Ressourcen wäre eine Evaluierung aller möglichen Hyperparameter-Kombinationen mittels einer \emph{Grid Search} nicht möglich. In der vorliegenden Arbeit wurde deshalb eine zufällige Suche nach \cite{randomSearch} implementiert. Das Beste Modell aus 10 zufälligen Hyperparameter-Kombinationen ist:
