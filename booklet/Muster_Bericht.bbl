@@ -6,10 +6,25 @@ Abadi, M., A.~Agarwal, P.~Barham, E.~Brevdo, and Others (2015).
 \newblock {TensorFlow}: Large-scale machine learning on heterogeneous systems.
 \newblock Software available from tensorflow.org.
 
-\bibitem[\protect\citeauthoryear{Géron}{Géron}{2017}]{geron2017hands-on}
-Geron, A. (2017).
+\bibitem[\protect\citeauthoryear{Geeron}{Geeron}{2017}]{geron2017hands-on}
+Geeron, A. (2017).
 \newblock {\em Hands-on machine learning with Scikit-Learn and TensorFlow :
   concepts, tools, and techniques to build intelligent systems}.
 \newblock Sebastopol, CA: O'Reilly Media.
+
+\bibitem[\protect\citeauthoryear{Glorot and Bengio}{Glorot and
+  Bengio}{2010}]{Glorot10understandingthe}
+Glorot, X. and Y.~Bengio (2010).
+\newblock Understanding the difficulty of training deep feedforward neural
+  networks.
+\newblock In {\em In Proceedings of the International Conference on Artificial
+  Intelligence and Statistics (AISTATS’10). Society for Artificial
+  Intelligence and Statistics}.
+
+\bibitem[\protect\citeauthoryear{Günter Daniel~Rey}{Günter
+  Daniel~Rey}{2018}]{neuronalenetze}
+Günter Daniel~Rey, K. F.~W. (2018).
+\newblock {\em Neuronale Netze}.
+\newblock hogrefe.
 
 \end{thebibliography}
