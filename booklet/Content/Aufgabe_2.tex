@@ -1,7 +1,26 @@
 \pagebreak
 \section{Aufgabe 2: Neuronale Netze}
-\subsection{Unterkapitel 1}
-\subsubsection{Unterkapitel 1.1}
+\subsection{Neuronale Netze mit Numpy}
+\subsubsection{Implementierung Backprop mit einem Hidden Layer}
+\subsubsection{Hyperparameter}
+Im folgenden werden Hyperparameter beschrieben, sowie ihre Auswirkungen auf das Neuronale Netzwerk diskutiert.
+\begin{description}
+	\item[Anzahl der Neuronen im Hidden Layer]\hfill \\
+	\item[Anzahl an Iterationen]\hfill \\
+	\item[Lernrate]\hfill \\
+	\item[Initialisierung der Gewichte]\hfill \\
+	Vor Allem beim Trainieren von tiefen neuronalen Netzen spielt die Initialisierung der Gewichte eine entscheidende Rolle um das Auftreten des Problems der explodierenden beziehungsweise verschwindenden Gradienten entgegen zu wirken \cite{geron2017hands-on}. In \cite{Glorot10understandingthe} wird die Glorot-Initialisierung, ein Verfahren zur Initialisierung der Gewichte bei Verwendung der Sigmoid Aktivierungsfunktion, beschrieben. Hierbei werden die Werte der initialen Gewichte aus einer Normalverteilung $\mathcal{N}(\mu,\,\sigma^{2})\,$ mit $\mu = 0$ und $\sigma^{2}=\frac{1}{fan_{avg}}$ entnommen. Hierbei gilt: 
+	\[
+	fan_{avg}=\frac{(fan_{in}+fan_{out})}{2}
+	\]
+	Wobei $fan_{in}$ der Anzahl an eingehenden Gewichte in einer Schicht entspricht und  $fan_{out}$ der Anzahl an Neuronen in der Schicht. Die Initialisierung der Gewichte in der vorliegenden Arbeit wurde  nach Glorot implementiert.
+
+	%TODO: Muss noch mathematisch und schön. sollten die Schichten und Gewichte mathematisch anotieren. Die anotation dann unter Aufgabe 2.1
+	Würden die Gewichte mit Null initialisiert werden, würde der Gradient für Alle Schichten bis auf die Ausgabeschicht Null sein. Ein Lernen würde nicht stattfinden. Der Gradient für die Aktualisierung der Gewichte zwischen versteckter Schicht und Ausgabeschicht würde für alle Partiellen Ableitungen gleich sein. Auch eine Initialisierung mit einer anderen Konstanten würde dazu führen, dass alle Gewichte "auf einer Ebene" gleich aktualisiert werden würden. Sie könnten einfach durch ein Neuron mit einer Verbindung ersetzt werden.
+	
+	Mithilfe der Verwendung eines \emph{Seeds} wird sicher gestellt, dass die zufällige Initialisierung der Gewichte bei jedem Durchlauf mit den gleichen Parametern die gleichen zufälligen Werte liefert. Das Netzwerk liefert also mit jedem Durchlauf bei gleichen Daten und Parametern die gleichen Ergebnisse. Somit wird die Reproduzierbarkeit im Netzwerk gefördert, was bei einer Fehlersuche und der Hyperparameter Optimierung hilfreich ist.
+	
+\end{description}
 \subsection{Neuronale Netze mit TensorFlow}
 %TODO: Tobi
 Im Folgenden wird die Implementierung eines voll vernetzen Neuronalen Netzwerks mit Hilfe der \emph{TensorFlow} Bibliothek beschrieben \cite{tensorflow2015-whitepaper}. Unterstützend wurde für den Aufbau des neuronalen Netzes die \emph{Keras}-API verwendet, die seit \emph{TensorFlow} Version 2 standardmäßig integriert ist. 
