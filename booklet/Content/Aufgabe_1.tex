@@ -53,6 +53,7 @@ Um kategorische Werte für weitere Analysen verwenden zu können, müssen diese 
 Ausreißer können die Performance eines Modells mindern, indem sie als Hebelwerte agieren und somit die Schätzungen der Zielvariable verzerren. Aus diesem Grund werden die Merkmale des Datensatz hinsichtlich ihrer Ausreißer begutachtet. Es wird ersichtlich, dass nur die Merkmale \emph{Rainfall} und \emph{WindGustSpeed} abweichende Werte aufweisen. Das Entfernen dieser Werte aus dem Datensatz führt jedoch zu einer schlechteren Performance der im folgenden Abschnitt besprochenen Entscheidungsbäume. Deshalb werden die Beobachtungen nicht aus dem Datensatz entfernt. Zudem zählen die beiden Merkmale zu denjenige Merkmalen, die durch die Variablenselektion aussortiert und somit für weitere Modelle nicht mehr betrachtet werden.
 
 \subsubsection{Variablenselektion}
+%TODO: Brauchen wir die Variablenselektion wirklich? Oder wird das durch den Max_detph parameter vom Baum geregelt...?
 Nach Abschluss der oben aufgeführten Schritte verfügt der Datensatz über 28 Einflussvariablen. Durch eine Variablenselektion soll die Anzahl dieser Einflussvariablen verringert werden. Das hat zum einen den Vorteil, dass Modelle  besser interpretierbar sind. Zum Anderen wird die Generalisierungsfähigkeit eines Modells erhöht, indem Merkmale ohne, oder nur mit geringem Einfluss auf die Zielvariable entfernt werden. Die Gefahr einer Überanpassung wird somit minimiert
 \\
 \noindent \hspace*{7mm}
@@ -60,7 +61,7 @@ Für den betrachteten Datensatz wird eine univariate Variablenselektion mit dem 
 
 \vspace{1cm}
 \subsection{Entscheidungsbäume}
-%TODO: Quellen! Tobi
+\label{section:Entscheidungsbäume}
 \subsubsection{Aufteilung in Trainings- und Testdaten}
 Um das Modell nach Abschluss anhand der Klassifizierungsgenauigkeit bewerten zu können, sollte der Datensatz in Trainings- und Testdaten aufgeteilt werden. Die Aufteilung und eine anschließende Bewertung anhand der Testdaten ermöglicht eine Einschätzung der Generalisierungsfähigkeit des Modells. Als Aufteilungsverhältnis wurde 20\% Testdaten und 80\% Trainingsdaten gewählt. 20\% der Daten entsprechen 6670 Datensätzen und bilden eine ausreichend große Menge um die Modellgüte zu bestimmen. Die Wahl des Aufteilungsverhältnisses wurde außerdem nach den Empfehlungen aus \cite{geron2017hands-on} gewählt.
 
