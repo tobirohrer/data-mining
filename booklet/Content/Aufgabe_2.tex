@@ -47,10 +47,13 @@ Im folgenden werden Hyperparameter beschrieben, sowie ihre Auswirkungen auf das 
 	
 \end{description}
 \subsection{Neuronale Netze mit TensorFlow}
-%TODO: Tobi
+%TODO: Beschreiben, welche Daten zum Trainieren genommen wurden
 Im Folgenden wird die Implementierung eines voll vernetzen Neuronalen Netzwerks mit Hilfe der \emph{TensorFlow} Bibliothek beschrieben \cite{tensorflow2015-whitepaper}. Unterstützend wurde für den Aufbau des neuronalen Netzes die \emph{Keras}-API verwendet, die seit \emph{TensorFlow} Version 2 standardmäßig integriert ist. 
 
 Um die Daten für das Training des Neuronalen Netzes effizient vorzubereiten wurde die \emph{Dataset}-API verwendet. Mit Hilfe der \emph{Dataset}-API wurde das zufällige Mischen der Trainingsdaten, sowie die Bereitstellung in Form von \emph{Mini-Batches} implementiert. Die Verwendung der \emph{Dataset}-API hat noch zusätzlich den Vorteil, dass die Ausführung von Vorbereitungsschritten der Daten perfekt mit dem Training des Neuronalen Netzes koordiniert und parallelisiert werden können.
+
+\subsubsection{Normalisierung der Daten}
+%TODO: Normalisierung der Daten beschreiben. Das ist für NNs Notwendig. Ohne Normalisierung kamen wir nur auf 79,8 % Genauigkeit.
 
 \subsubsection{Hyperparameter Suche}
 Um ein best Mögliches Modell für die vorliegenden Daten zu finden, wurde eine automatisierte Suche nach den besten Hyperparameter-Kombination implementiert. Die zur Auswahl stehenden Hyperparameter mit ihren möglichen Ausprägungen sind in Tabelle \ref{table:hyper} aufgeführt.
@@ -68,4 +71,4 @@ Um ein best Mögliches Modell für die vorliegenden Daten zu finden, wurde eine 
 	\caption{\label{table:hyper}Learn rates during training the model.}
 \end{table}
 
-Durch begrenzte Ressourcen wäre eine Evaluierung aller möglichen Hyperparameter-Kombinationen mittels einer \emph{Grid Search} nicht möglich. In der vorliegenden Arbeit wurde deshalb eine zufällige Suche nach \cite{randomSearch} implementiert. Das Beste Modell aus 10 zufälligen Hyperparameter-Kombinationen ist: 3 Neuronen pro Hidden Layer, 4 Hidden Layer, Lernrate von 0.1, kein Dropout und ELU Activation.
+Durch begrenzte Ressourcen wäre eine Evaluierung aller möglichen Hyperparameter-Kombinationen mittels einer \emph{Grid Search} nicht möglich. In der vorliegenden Arbeit wurde deshalb eine zufällige Suche nach \cite{randomSearch} implementiert. Das Sieger-Modell aus 10 zufälligen Hyperparameter-Kombinationen htrainiat 4 versteckte Layer mit jeweils 3 Neuronen. Die Lernrate wurde auf 0.1 festgelegt und das Netzwerk wurde ohne die Verwendung von Dropout trainiert. Als effektivste Aktivierungsfunktion hat sich die ELU-Funktion herausgestellt \cite{elu}. Das Sieger-Modell konnte eine Klassifizierungsgenauikgkeit von 85,11\% auf die Testdaten erreichen. Die Daten zum trainieren und testen des neuronalen Netzwerks wurden analog zu Aufgabenstellung \ref{section:Entscheidungsbäume} verwendet.
