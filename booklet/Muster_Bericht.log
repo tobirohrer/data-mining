@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7400 64-bit) (preloaded format=pdflatex 2020.4.23)  30 JUL 2020 15:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7400 64-bit) (preloaded format=pdflatex 2020.4.23)  30 JUL 2020 19:01
 entering extended mode
 **./Muster_Bericht.tex
 (Muster_Bericht.tex
@@ -590,7 +590,8 @@ nd-pdfmode.def"
 File: l3backend-pdfmode.def 2020-03-12 L3 backend support: PDF mode
 \l__kernel_color_stack_int=\count300
 \l__pdf_internal_box=\box100
-) (Muster_Bericht.aux)
+)
+No file Muster_Bericht.aux.
 \openout1 = `Muster_Bericht.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 6.
@@ -609,7 +610,6 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 6.
 LaTeX Font Info:    ... okay on input line 6.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 6.
 LaTeX Font Info:    ... okay on input line 6.
-
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -706,22 +706,12 @@ Overfull \hbox (119.98921pt too wide) in paragraph at lines 4--4
 [][] 
  []
 
-(Muster_Bericht.toc
-LaTeX Font Info:    Trying to load font information for U+msa on input line 4.
 
-("C:\Users\Tamara\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\umsa.fd"
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 4.
- ("C:\Users\Tamara\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\umsb.fd
-"
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-LaTeX Font Info:    Trying to load font information for U+lasy on input line 4.
+Package hyperref Warning: old toc file detected, not used; run LaTeX again.
 
- ("C:\Users\Tamara\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\ulasy.fd"
-File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
-)
+\tf@toc=\write5
+\openout5 = `Muster_Bericht.toc'.
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
 Make it at least 14.49998pt.
@@ -730,20 +720,45 @@ This may cause the page layout to be inconsistent, however.
 
 [1{C:/Users/Tamara/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
 
- <./Bilder/hda_fbmn.png>])
-\tf@toc=\write5
-\openout5 = `Muster_Bericht.toc'.
+ <./Bilder/hda_fbmn.png>]) (Content/Zusammenfassung.tex) [2] (Content/Aufgabe_1
+.tex
 
- [2]) (Content/Zusammenfassung.tex) [3] (Content/Aufgabe_1.tex
-<Bilder/distribution_target_variable.png, id=95, 433.62pt x 289.08pt>
+LaTeX Warning: Reference `fig:disc_target_variable' on page 1 undefined on inpu
+t line 6.
+
+<Bilder/distribution_target_variable.png, id=22, 433.62pt x 289.08pt>
 File: Bilder/distribution_target_variable.png Graphic file (type png)
 <use Bilder/distribution_target_variable.png>
 Package pdftex.def Info: Bilder/distribution_target_variable.png  used on input
  line 10.
 (pdftex.def)             Requested size: 241.84843pt x 161.23528pt.
-
 [1 <./Bilder/distribution_target_variable.png>] [2]
-<Bilder/treedefault.png, id=110, 1274.7625pt x 594.22pt>
+LaTeX Font Info:    Trying to load font information for U+msa on input line 60.
+
+
+("C:\Users\Tamara\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\umsa.fd"
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 60.
+
+ ("C:\Users\Tamara\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\umsb.fd
+"
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 60
+.
+ ("C:\Users\Tamara\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\ulasy.fd"
+File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
+)
+
+Package natbib Warning: Citation `geron2017hands-on' on page 3 undefined on inp
+ut line 66.
+
+
+LaTeX Warning: Reference `fig:treedefault' on page 3 undefined on input line 72
+.
+
+<Bilder/treedefault.png, id=42, 1274.7625pt x 594.22pt>
 File: Bilder/treedefault.png Graphic file (type png)
 <use Bilder/treedefault.png>
 Package pdftex.def Info: Bilder/treedefault.png  used on input line 75.
@@ -755,18 +770,18 @@ n.tree.DecisionTreeClassifier.html
  []
 
 [3]
-<Bilder/treeMaxDepth.png, id=117, 1182.4175pt x 560.0925pt>
+<Bilder/treeMaxDepth.png, id=52, 1182.4175pt x 560.0925pt>
 File: Bilder/treeMaxDepth.png Graphic file (type png)
 <use Bilder/treeMaxDepth.png>
 Package pdftex.def Info: Bilder/treeMaxDepth.png  used on input line 87.
 (pdftex.def)             Requested size: 130.59859pt x 61.8582pt.
-<Bilder/treeMinImpurityDecrease.png, id=118, 1134.2375pt x 560.0925pt>
+<Bilder/treeMinImpurityDecrease.png, id=53, 1134.2375pt x 560.0925pt>
 File: Bilder/treeMinImpurityDecrease.png Graphic file (type png)
 <use Bilder/treeMinImpurityDecrease.png>
 Package pdftex.def Info: Bilder/treeMinImpurityDecrease.png  used on input line
  93.
 (pdftex.def)             Requested size: 130.59859pt x 64.48192pt.
-<Bilder/treeCriterion.png, id=119, 1190.4475pt x 560.0925pt>
+<Bilder/treeCriterion.png, id=54, 1190.4475pt x 560.0925pt>
 File: Bilder/treeCriterion.png Graphic file (type png)
 <use Bilder/treeCriterion.png>
 Package pdftex.def Info: Bilder/treeCriterion.png  used on input line 99.
@@ -776,27 +791,84 @@ Underfull \hbox (badness 10000) in paragraph at lines 82--103
 
  []
 
-[4 <./Bilder/treedefault.png>]) (Content/Aufgabe_2.tex [5 <./Bilder/treeMaxDept
-h.png> <./Bilder/treeMinImpurityDecrease.png> <./Bilder/treeCriterion.png>]
+[4 <./Bilder/treedefault.png>]
 
-Package natbib Warning: Citation `dropout' on page 6 undefined on input line 10
+LaTeX Warning: Reference `fig:treeMaxDepth' on page 5 undefined on input line 1
+06.
+
+
+LaTeX Warning: Reference `fig:treeMinImpurityDecrease' on page 5 undefined on i
+nput line 108.
+
+
+LaTeX Warning: Reference `fig:treeCriterion' on page 5 undefined on input line 
+110.
+
+
+LaTeX Warning: Reference `app:abb_booklet_1' on page 5 undefined on input line 
+118.
+
+
+LaTeX Warning: Reference `fig:ccp_accuracyVsAlpha' on page 5 undefined on input
+ line 120.
+
+<Bilder/ccp_accuracyVsAlpha.png, id=63, 400.49625pt x 301.125pt>
+File: Bilder/ccp_accuracyVsAlpha.png Graphic file (type png)
+<use Bilder/ccp_accuracyVsAlpha.png>
+Package pdftex.def Info: Bilder/ccp_accuracyVsAlpha.png  used on input line 123
+.
+(pdftex.def)             Requested size: 241.84843pt x 181.84346pt.
+[5 <./Bilder/treeMaxDepth.png> <./Bilder/treeMinImpurityDecrease.png> <./Bilder
+/treeCriterion.png>]) (Content/Aufgabe_2.tex [6 <./Bilder/ccp_accuracyVsAlpha.p
+ng>]
+
+Package natbib Warning: Citation `dropout' on page 7 undefined on input line 10
 .
 
-<Bilder/learning_rates.png, id=140, 722.7pt x 578.16pt>
+
+LaTeX Warning: Reference `fig:learning_rates' on page 7 undefined on input line
+ 21.
+
+
+Package natbib Warning: Citation `neuronalenetze' on page 7 undefined on input 
+line 25.
+
+
+LaTeX Warning: Reference `fig:learning_rates' on page 7 undefined on input line
+ 27.
+
+<Bilder/learning_rates.png, id=82, 722.7pt x 578.16pt>
 File: Bilder/learning_rates.png Graphic file (type png)
 <use Bilder/learning_rates.png>
 Package pdftex.def Info: Bilder/learning_rates.png  used on input line 31.
 (pdftex.def)             Requested size: 217.66211pt x 174.12863pt.
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+Package natbib Warning: Citation `geron2017hands-on' on page 7 undefined on inp
+ut line 37.
 
-[6] [7 <./Bilder/learning_rates.png>]
 
-Package natbib Warning: Citation `randomSearch' on page 8 undefined on input li
+Package natbib Warning: Citation `Glorot10understandingthe' on page 7 undefined
+ on input line 37.
+
+[7]
+
+Package natbib Warning: Citation `tensorflow2015-whitepaper' on page 8 undefine
+d on input line 51.
+
+
+LaTeX Warning: Reference `table:hyper' on page 8 undefined on input line 59.
+
+[8 <./Bilder/learning_rates.png>]
+
+Package natbib Warning: Citation `randomSearch' on page 9 undefined on input li
 ne 74.
 
 
-Package natbib Warning: Citation `elu' on page 8 undefined on input line 74.
+Package natbib Warning: Citation `elu' on page 9 undefined on input line 74.
+
+
+LaTeX Warning: Reference `section:EntscheidungsbÃ¤ume' on page 9 undefined on i
+nput line 74.
 
 ) (Content/Aufgabe_3.tex
 Overfull \hbox (19.75104pt too wide) in paragraph at lines 74--2
@@ -810,19 +882,117 @@ Overfull \hbox (7.21283pt too wide) in paragraph at lines 74--2
 as Sieger-Modell aus 10 zu-fäl-li-gen Hyperparameter-Kombinationen
  []
 
-[8]) (Content/Aufgabe_4.tex [9]) [10] (Content/Anhang.tex [1] [2] [3]) [4]
-(Muster_Bericht.bbl)
+[9]) (Content/Aufgabe_4.tex [10]) [11] (Content/Anhang.tex
+
+LaTeX Warning: Reference `fig:ccp_fulltree_alpha_0005' on page I undefined on i
+nput line 6.
+
+
+LaTeX Warning: Reference `fig:ccp_fulltree_alpha_002' on page I undefined on in
+put line 6.
+
+<Bilder/ccp_fulltree_alpha_0005.png, id=124, 1155.31625pt x 560.0925pt>
+File: Bilder/ccp_fulltree_alpha_0005.png Graphic file (type png)
+<use Bilder/ccp_fulltree_alpha_0005.png>
+Package pdftex.def Info: Bilder/ccp_fulltree_alpha_0005.png  used on input line
+ 11.
+(pdftex.def)             Requested size: 195.89456pt x 94.96661pt.
+
+Underfull \hbox (badness 6157) in paragraph at lines 12--12
+[]\T1/cmr/m/n/12 Abbildung 8: |Ent-schei-dungs-baum mit
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 12--12
+\T1/cmr/m/n/12 Pa-ra-me-tern \T1/cmr/m/it/12 max_depth=None \T1/cmr/m/n/12 und
+ []
+
+<Bilder/ccp_fulltree_alpha_002.png, id=125, 1134.2375pt x 560.0925pt>
+File: Bilder/ccp_fulltree_alpha_002.png Graphic file (type png)
+<use Bilder/ccp_fulltree_alpha_002.png>
+Package pdftex.def Info: Bilder/ccp_fulltree_alpha_002.png  used on input line 
+17.
+(pdftex.def)             Requested size: 195.89456pt x 96.72716pt.
+
+Underfull \hbox (badness 6157) in paragraph at lines 18--18
+[]\T1/cmr/m/n/12 Abbildung 9: |Ent-schei-dungs-baum mit
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 18--18
+\T1/cmr/m/n/12 Pa-ra-me-tern \T1/cmr/m/it/12 max_depth=None \T1/cmr/m/n/12 und
+ []
+
+
+Overfull \hbox (5.53842pt too wide) in paragraph at lines 6--21
+\T1/cmr/m/n/12 Un-ter-schied in den Bäu-men mit ge-rin-ge-rem und hö-he-rem $\O
+ML/cmm/m/it/12 $ \T1/cmr/m/n/12 wird für die bei-den Baum-Variationen
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6--21
+
+ []
+
+
+LaTeX Warning: Reference `fig:ccp_maxDepth_alpha_001' on page I undefined on in
+put line 22.
+
+
+LaTeX Warning: Reference `fig:ccp_maxDepth_alpha_004' on page I undefined on in
+put line 22.
+
+<Bilder/ccp_maxDepth_alpha_001.png, id=126, 1134.2375pt x 560.0925pt>
+File: Bilder/ccp_maxDepth_alpha_001.png Graphic file (type png)
+<use Bilder/ccp_maxDepth_alpha_001.png>
+Package pdftex.def Info: Bilder/ccp_maxDepth_alpha_001.png  used on input line 
+27.
+(pdftex.def)             Requested size: 195.89456pt x 96.72716pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 28--28
+[]\T1/cmr/m/n/12 Abbildung 10: |Ent-schei-dungs-baum
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 28--28
+\T1/cmr/m/n/12 mit Pa-ra-me-tern \T1/cmr/m/it/12 max_depth=8 \T1/cmr/m/n/12 und
+
+ []
+
+<Bilder/ccp_maxdepth_alpha_004.png, id=127, 1134.2375pt x 560.0925pt>
+File: Bilder/ccp_maxdepth_alpha_004.png Graphic file (type png)
+<use Bilder/ccp_maxdepth_alpha_004.png>
+Package pdftex.def Info: Bilder/ccp_maxdepth_alpha_004.png  used on input line 
+33.
+(pdftex.def)             Requested size: 195.89456pt x 96.72716pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 34--34
+[]\T1/cmr/m/n/12 Abbildung 11: |Ent-schei-dungs-baum
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 34--34
+\T1/cmr/m/n/12 mit Pa-ra-me-tern \T1/cmr/m/it/12 max_depth=8 \T1/cmr/m/n/12 und
+
+ []
+
+[1 <./Bilder/ccp_fulltree_alpha_0005.png> <./Bilder/ccp_fulltree_alpha_002.png>
+ <./Bilder/ccp_maxDepth_alpha_001.png> <./Bilder/ccp_maxdepth_alpha_004.png>]
+[2] [3] [4]) [5]
+No file Muster_Bericht.bbl.
 
 Package natbib Warning: There were undefined citations.
 
 
+Package lastpage Warning: Rerun to get the references right on input line 35.
+
+
 AED: lastpage setting LastPage
-[5]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 34.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 34.
- (Muster_Bericht.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 34.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 34.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 35.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 35.
+(Muster_Bericht.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 35.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 35.
 
 
 Package rerunfilecheck Warning: File `Muster_Bericht.out' has changed.
@@ -831,17 +1001,23 @@ Package rerunfilecheck Warning: File `Muster_Bericht.out' has changed.
 
 Package rerunfilecheck Info: Checksums for `Muster_Bericht.out':
 (rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  421E25B6D8BE137004AD122B328AFE6D;2573.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 34.
+(rerunfilecheck)             After:  965764F410064ACE7BEBE87487E8A04E;2652.
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 35.
  ) 
 Here is how much of TeX's memory you used:
- 10629 strings out of 480930
- 162868 string characters out of 2899292
- 445774 words of memory out of 3000000
- 26180 multiletter control sequences out of 15000+200000
+ 10642 strings out of 480930
+ 163318 string characters out of 2899292
+ 443983 words of memory out of 3000000
+ 26195 multiletter control sequences out of 15000+200000
  543387 words of font info for 53 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,12n,47p,1038b,463s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 41i,12n,47p,1038b,406s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\Tamara\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600
 \ecti1200.pk> <C:\Users\Tamara\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappe
 n/ec/dpi600\ecbx1728.pk> <C:\Users\Tamara\AppData\Local\MiKTeX\2.9\fonts/pk/ljf
@@ -856,9 +1032,9 @@ public/amsfonts/cm/cmmi8.pfb><C:/Users/Tamara/AppData/Local/Programs/MiKTeX 2.9
 /fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Tamara/AppData/Local/Progra
 ms/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Tamara/AppData/
 Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on Muster_Bericht.pdf (18 pages, 882720 bytes).
+Output written on Muster_Bericht.pdf (18 pages, 1232051 bytes).
 PDF statistics:
- 546 PDF objects out of 1000 (max. 8388607)
- 65 named destinations out of 1000 (max. 500000)
- 36 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 492 PDF objects out of 1000 (max. 8388607)
+ 64 named destinations out of 1000 (max. 500000)
+ 61 words of extra memory for PDF output out of 10000 (max. 10000000)
 

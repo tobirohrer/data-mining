@@ -73,7 +73,7 @@ Diese geben an, dass ein Baum immer maximal gebaut wird (\emph{max\_depth = None
 \begin{figure}[h]
 	\centering
 	\includegraphics[width = 0.7\textwidth]{Bilder/treedefault}
-	\caption{Entschidungsbaum mit Default-Einstellungen}
+	\caption{Entscheidungsbaum mit Default-Einstellungen}
 	\label{fig:treedefault}
 \end{figure}
 Es ist leicht zu erkennen, dass dieser Baum zu viele Knoten und Blätter enthält und somit eine Überanpassung darstellt. Diese Überanpassung kann auch an dem Trainings- und Testfehler abgelesen werden. Der Trainingsfehler beträgt für den gebildeten Entscheidungsbaum 0.0005 und der Testfehler 0.2340. Der Testfehler ist damit höher als bei einem Modell, das zufällig entscheidet. Dem kann mit verschiedenen Einstellungen entgegengewirkt werden.
@@ -111,7 +111,19 @@ Um einen übersichtlichen und brauchbaren Entscheidungsbam erzeugen zu können w
 \end{description}
 %TODO Grid Search Tobi
 \subsubsection{Minimal Cost-Complexity-Pruning}
-%TODO Tamara
+Im vorherigen Abschnitt wird mit Hilfe des \emph{max\_depth} Parameters eine Überanpassung verhindert, es wird ein \emph{pre-pruning} durchgeführt. Eine weitere Möglichkeit der Vermeidung des Overfittings bietet das \emph{Cost-Complexitiy Pruning} als \emph{post-pruning} Methode. Dabei wird der voll ausgebildete Baum iterativ beschnitten, indem diejenigen Teilbäume entfernt werden, die einen festgelegten penalisierten Fehlerterm minimieren.\\
+\noindent \hspace*{7mm}
+Das Modul \emph{DecisionTreeClassifier} arbeitet mit effektiven $\alpha$-Werten der einzelnen Knoten. Für jeden Knoten des Baumes wird dieser Wert bestimmt. Dabei entpricht $\alpha_{eff}$ dem $\alpha$, für das gilt: $R_{\alpha}(T_{t})=R_{\alpha}(t)$. Der Knoten mit dem geringsten effektiven $\alpha$ wird vom Baum abgeschnitten. Dieses Vorgehen wird solange wiederholt, bis der geringste effektive $\alpha$-Wert größer als der gegebenen Penalisierungs-Term \emph{ccp\_alpha} ist.\\
+\noindent \hspace*{7mm}
+Dabei ist zu beachten, dass die Bäume kleiner werden, also stärker beschnitten werden, je höher der gegebene Penalisierungs-Term ist, da dieser eine hohe Anzahl an Knoten bestraft und somit zu kleineren Bäumen führt (siehe auch \ref{app:abb_booklet_1}).\\
+\noindent \hspace*{7mm}
+Das Pruning hat Auswirkungen auf die Modellgüte, indem es die Anpassung an die Trainingsdaten reguliert. Wird hohe Komplexität stark bestraft, kann der Entscheidungsbaum weniger gut an die Trainingsdaten angepasst werden. Wird der Penalisierungs-Term zu hoch gesetzt, besteht die Gefahr der Unteranpassung, ein sehr niedriger Term führt zu Overfitting. in Abbildung \ref{fig:ccp_accuracyVsAlpha} ist beispielhaft für einen Entscheidungsbaum mit Default-Einstellungen der Trainings- und Testfehler für verschiedene Pruning-Parameter $\alpha$ dargestellt.\\
+\begin{figure}[h]
+	\centering
+	\includegraphics[width = 0.5\textwidth]{Bilder/ccp_accuracyVsAlpha.png}
+	\caption{Trainings- und Testfehler für verschiedene $\alpha$-Werte}
+	\label{fig:ccp_accuracyVsAlpha}
+\end{figure}
 
 
 
