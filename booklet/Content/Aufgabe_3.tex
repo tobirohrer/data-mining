@@ -1,4 +1,34 @@
 \pagebreak
 \section{Aufgabe 2: Ensemblemethoden}
-\subsection{Unterkapitel 1}
-\subsubsection{Unterkapitel 1.1}
+Im Folgenden Abschnitt wird die Implementierung und Optimierung verschiedener Ensemblemethoden mit Hilfe der \emph{scikit-learn} Bibliothek beschrieben. Um einen Vergleich zwischen verschiedenen Ensemblemethoden herstellen zu können wurde das \emph{Bagging}- und \emph{AdaBoost}-Verfahren, sowie ein \emph{Random-Forest} implementiert. Alle drei \emph{Ensemblemethoden} wurden mit einem Klassifizierungsbaum als Basisklassifizierer erstellt. Die Klassifizierungsgenauigkeit der einzelnen Verfahren mit Standardeinstellungen, sowie nach einer Hyperparameter-Optimierung können in Tabelle X gefunden werden. 
+
+\subsection{Hyperparameter Optimierung}
+Um eine optimale Einstellung der Hyperparameter pro Verfahren zu finden, wurde mit Hilfe der \emph{scikit-learn} Bibliothek das \emph{GridSearch}-Verfahren implementiert. Im Gegensatz zu dem \emph{RandomSearch}-Verfahren, dass in Kapitel \ref{nn_hyperparams} verwendet wurde, sucht \emph{GridSearch} alle möglichen Hyperparameter-Kombinationen in einem gegebenen Parameterraum.
+%TODO: Argument pro Grid, oder sowas
+
+\subsubsection{Univariat}
+Die aus der Aufgabenstellung angegebenen Hyperparameter wurden zunächst einzeln (univariat) variiert, um nach einem optimalen Wert pro Hyperparameter zu suchen. Hierbei wurde die Suche in drei Durchläufen durchgeführt. Der Hyperparameter, durch dessen Konfiguration weg von seiner Standardeinstellung, die größte positive Auswirkung auf das Klassifizierungsergebnis erzielt werden konnte, wurde für den jeweils nächsten Durchgang fest konfiguriert und aus dem zu suchenden Parameterraum entfernt. Im Ersten Durchlauf wurde somit die optimale Einstellung für \emph{maxdepth} gefunden, im Zweiten für \emph{tbd} und im Dritten für die restlichen Hyperparameter.
+
+Die Ergebnisse pro Modell und Hyperparameter sind in Tabelle X dargestellt.
+
+\begin{table}[]
+	\begin{tabular}{lllll}
+		& Random Forest & Entscheidungsbaum & AdaBoost & Bagging \\
+		n\_estimators               &               &                   &          & 100     \\
+		criterion                   &               &                   & entropy        & entropy \\
+		max\_depth                  &               &                   &          & 10      \\
+		min\_samples\_split         &               &                   &          & 10      \\
+		min\_samples\_leaf          &               &                   &          & 10      \\
+		min\_weight\_fraction\_leaf &               &                   &          & 0       \\
+		max\_features               &               &                   &          & 15      \\
+		max\_leaf\_nodes            &               &                   &          & 100     \\
+		min\_impurity\_decrease     &               &                   &          & 0.0     \\
+		min\_impurity\_split        &               &                   &          & 0.1    
+	\end{tabular}
+\end{table}
+
+ Tabelle X zeigt den den Gewählte Parameterraum pro Hyperparameter und ist im Anhang zu finden.
+ 
+ 
+ 
+\subsubsection{Multivariat}
