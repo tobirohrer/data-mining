@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7400 64-bit) (preloaded format=pdflatex 2020.4.23)  30 JUL 2020 19:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7400 64-bit) (preloaded format=pdflatex 2020.4.23)  1 AUG 2020 12:23
 entering extended mode
 **./Muster_Bericht.tex
 (Muster_Bericht.tex
@@ -852,33 +852,66 @@ Package natbib Warning: Citation `tensorflow2015-whitepaper' on page 7 undefine
 d on input line 51.
 
 
-LaTeX Warning: Reference `table:hyper' on page 7 undefined on input line 59.
+LaTeX Warning: Reference `table:hyper' on page 7 undefined on input line 60.
 
 [7 <./Bilder/learning_rates.png>]
 
 Package natbib Warning: Citation `randomSearch' on page 8 undefined on input li
-ne 74.
+ne 75.
 
 
-Package natbib Warning: Citation `elu' on page 8 undefined on input line 74.
+Package natbib Warning: Citation `elu' on page 8 undefined on input line 75.
 
 
 LaTeX Warning: Reference `section:EntscheidungsbÃ¤ume' on page 8 undefined on i
-nput line 74.
+nput line 75.
 
 ) (Content/Aufgabe_3.tex
-Overfull \hbox (19.75104pt too wide) in paragraph at lines 74--2
+Overfull \hbox (19.75104pt too wide) in paragraph at lines 75--2
 []\T1/cmr/m/n/12 Durch be-grenz-te Res-sour-cen wä-re ei-ne Eva-lu-ie-rung al-l
 er mög-li-chen Hyperparameter-Kombinationen
  []
 
 
-Overfull \hbox (7.21283pt too wide) in paragraph at lines 74--2
+Overfull \hbox (7.21283pt too wide) in paragraph at lines 75--2
 \T1/cmr/m/n/12 Su-che nach \T1/cmr/bx/n/12 ? \T1/cmr/m/n/12 im-ple-men-tiert. D
 as Sieger-Modell aus 10 zu-fäl-li-gen Hyperparameter-Kombinationen
  []
 
-[8]) (Content/Aufgabe_4.tex [9]) [10] (Content/Anhang.tex
+[8]
+
+LaTeX Warning: Reference `table:results_grid' on page 9 undefined on input line
+ 21.
+
+
+LaTeX Warning: Reference `nn_hyperparams' on page 9 undefined on input line 24.
+
+
+
+LaTeX Warning: Reference `table:gridsearch' on page 9 undefined on input line 2
+9.
+
+[9]
+
+LaTeX Warning: Reference `section:univariat' on page 10 undefined on input line
+ 32.
+
+
+Overfull \hbox (19.59781pt too wide) in paragraph at lines 32--33
+\T1/cmr/m/n/12 einen Hy-per-pa-ra-me-ter um-fas-sen. So-mit kön-nen auch op-ti-
+ma-le Kom-bi-na-tio-nen von Hyperparameter-
+ []
+
+
+LaTeX Warning: Reference `table:results_grid' on page 10 undefined on input lin
+e 35.
+
+
+Overfull \hbox (10.78023pt too wide) in paragraph at lines 38--45
+[][] 
+ []
+
+) (Content/Aufgabe_4.tex [10]) [11] (Content/Anhang.tex
 
 LaTeX Warning: Reference `fig:ccp_fulltree_alpha_0005' on page I undefined on i
 nput line 6.
@@ -887,7 +920,7 @@ nput line 6.
 LaTeX Warning: Reference `fig:ccp_fulltree_alpha_002' on page I undefined on in
 put line 6.
 
-<Bilder/ccp_fulltree_alpha_0005.png, id=119, 1155.31625pt x 560.0925pt>
+<Bilder/ccp_fulltree_alpha_0005.png, id=128, 1155.31625pt x 560.0925pt>
 File: Bilder/ccp_fulltree_alpha_0005.png Graphic file (type png)
 <use Bilder/ccp_fulltree_alpha_0005.png>
 Package pdftex.def Info: Bilder/ccp_fulltree_alpha_0005.png  used on input line
@@ -903,7 +936,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 12--12
 \T1/cmr/m/n/12 Pa-ra-me-tern \T1/cmr/m/it/12 max_depth=None \T1/cmr/m/n/12 und
  []
 
-<Bilder/ccp_fulltree_alpha_002.png, id=120, 1134.2375pt x 560.0925pt>
+<Bilder/ccp_fulltree_alpha_002.png, id=129, 1134.2375pt x 560.0925pt>
 File: Bilder/ccp_fulltree_alpha_002.png Graphic file (type png)
 <use Bilder/ccp_fulltree_alpha_002.png>
 Package pdftex.def Info: Bilder/ccp_fulltree_alpha_002.png  used on input line 
@@ -938,7 +971,7 @@ put line 22.
 LaTeX Warning: Reference `fig:ccp_maxDepth_alpha_004' on page I undefined on in
 put line 22.
 
-<Bilder/ccp_maxDepth_alpha_001.png, id=121, 1134.2375pt x 560.0925pt>
+<Bilder/ccp_maxDepth_alpha_001.png, id=130, 1134.2375pt x 560.0925pt>
 File: Bilder/ccp_maxDepth_alpha_001.png Graphic file (type png)
 <use Bilder/ccp_maxDepth_alpha_001.png>
 Package pdftex.def Info: Bilder/ccp_maxDepth_alpha_001.png  used on input line 
@@ -955,7 +988,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 28--28
 
  []
 
-<Bilder/ccp_maxdepth_alpha_004.png, id=122, 1134.2375pt x 560.0925pt>
+<Bilder/ccp_maxdepth_alpha_004.png, id=131, 1134.2375pt x 560.0925pt>
 File: Bilder/ccp_maxdepth_alpha_004.png Graphic file (type png)
 <use Bilder/ccp_maxdepth_alpha_004.png>
 Package pdftex.def Info: Bilder/ccp_maxdepth_alpha_004.png  used on input line 
@@ -974,7 +1007,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 34--34
 
 [1 <./Bilder/ccp_fulltree_alpha_0005.png> <./Bilder/ccp_fulltree_alpha_002.png>
  <./Bilder/ccp_maxDepth_alpha_001.png> <./Bilder/ccp_maxdepth_alpha_004.png>]
-[2] [3] [4]) [5]
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 42--46
+
+ []
+
+[3] [4] [5]) [6]
 No file Muster_Bericht.bbl.
 
 Package natbib Warning: There were undefined citations.
@@ -997,7 +1035,7 @@ Package rerunfilecheck Warning: File `Muster_Bericht.out' has changed.
 
 Package rerunfilecheck Info: Checksums for `Muster_Bericht.out':
 (rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  965764F410064ACE7BEBE87487E8A04E;2652.
+(rerunfilecheck)             After:  7213ADFEDC2599AEE919FF8E593CBB14;2881.
 
 LaTeX Warning: There were undefined references.
 
@@ -1007,13 +1045,13 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 35.
  ) 
 Here is how much of TeX's memory you used:
- 10639 strings out of 480930
- 163237 string characters out of 2899292
- 443983 words of memory out of 3000000
- 26193 multiletter control sequences out of 15000+200000
+ 10650 strings out of 480930
+ 163408 string characters out of 2899292
+ 455983 words of memory out of 3000000
+ 26197 multiletter control sequences out of 15000+200000
  543387 words of font info for 53 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,12n,47p,1038b,406s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 41i,16n,47p,1232b,406s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\Tamara\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600
 \ecti1200.pk> <C:\Users\Tamara\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappe
 n/ec/dpi600\ecbx1728.pk> <C:\Users\Tamara\AppData\Local\MiKTeX\2.9\fonts/pk/ljf
@@ -1021,16 +1059,18 @@ our/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\Tamara\AppData\Local\MiKTeX\2.9\f
 onts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk> <C:\Users\Tamara\AppData\Local\M
 iKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\Tamara\AppD
 ata\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk><C:/Users/T
-amara/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.p
+amara/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.p
 fb><C:/Users/Tamara/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfon
-ts/cm/cmmi6.pfb><C:/Users/Tamara/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/
-public/amsfonts/cm/cmmi8.pfb><C:/Users/Tamara/AppData/Local/Programs/MiKTeX 2.9
-/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Tamara/AppData/Local/Progra
-ms/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Tamara/AppData/
-Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on Muster_Bericht.pdf (17 pages, 1230091 bytes).
+ts/cm/cmmi12.pfb><C:/Users/Tamara/AppData/Local/Programs/MiKTeX 2.9/fonts/type1
+/public/amsfonts/cm/cmmi6.pfb><C:/Users/Tamara/AppData/Local/Programs/MiKTeX 2.
+9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Tamara/AppData/Local/Progr
+ams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Tamara/AppDat
+a/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/T
+amara/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.p
+fb>
+Output written on Muster_Bericht.pdf (19 pages, 1255893 bytes).
 PDF statistics:
- 486 PDF objects out of 1000 (max. 8388607)
- 63 named destinations out of 1000 (max. 500000)
+ 514 PDF objects out of 1000 (max. 8388607)
+ 70 named destinations out of 1000 (max. 500000)
  61 words of extra memory for PDF output out of 10000 (max. 10000000)
 

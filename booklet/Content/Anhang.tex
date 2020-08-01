@@ -38,6 +38,94 @@ Abbildungen \ref{fig:ccp_maxDepth_alpha_001} und \ref{fig:ccp_maxDepth_alpha_004
 \pagebreak
 \subsection{Quellcode zu Booklet Teil 1}
 \pagebreak
+\subsection{Ergänzungen zu Booklet Teil 2}
+Folgend ist die mathematische Herleitung der Backpropagation für das in Aufgabe 1 gegebene Modell aufgeführt.\\\\
+y: Beobachtete Werte der Stichprobe\\
+$a_{2}=\hat{\pi}$\\
+$\sigma$ = Sigmoid-Funktion
+\begin{align*}
+    dW_{2} &= \frac{\partial E^{n}}{\partial W_{2}}\\
+    &= \frac{\partial E^{n}}{\partial z_{2}}\cdot \frac{\partial z_{2}}{\partial W_{2}}\\
+    &= \frac{\partial E^{n}}{\partial a_{2}} \cdot \frac{\partial a_{2}}{\partial z_{2}} \cdot \frac{\partial z_{2}}{\partial W_{2}}\\
+    &= \frac{\partial }{\partial a_{2}} \frac{1}{2}(y-a_{2})^{2} \cdot \frac{\partial }{\partial z_{2}} \sigma(a_{1}W_{2} + b_{2})\cdot \frac{\partial }{\partial W_{2}}(a_{1}W_{2}+b_{2})\\
+    &= -(y-a_{2}) \cdot \sigma(a_{1}W_{2}+b_{2})(1-\sigma(a_{1}W_{2}+b_{2}))\cdot a_{1}\\
+    &=-\begin{pmatrix}
+        y_{1}  -  a_{2;11} \\
+        \vdots \\
+        y_{n}  -  a_{2;n1}  \\
+        \end{pmatrix} \cdot \begin{pmatrix}
+                            \sigma (z_{2;11}) \\
+                            \vdots \\
+                            \sigma (z_{2;n1})  \\
+                            \end{pmatrix} \cdot \begin{pmatrix}
+                                                    1-\sigma (z_{2;11}) \\
+                                                    \vdots \\
+                                                    1-\sigma (z_{2;n1})  \\
+                                                    \end{pmatrix} \cdot \begin{pmatrix}
+                                                                        a_{1;11} & \cdots & a_{1;1m} \\
+                                                                        \vdots & \ddots & \vdots \\
+                                                                        a_{1;n1}&\cdots & a_{1;nm}  \\
+                                                                        \end{pmatrix} \\\\
+    \Rightarrow \delta_{2} &= \frac{\partial E^{n}}{\partial z_{2}}\\
+     \delta_{2} &= -(y-a_{2}) \cdot \sigma(a_{1}W_{2}+b_{2})(1-\sigma(a_{1}W_{2}+b_{2}))\\\\
+    db_{2} &= \frac{\partial E^{n}}{\partial b_{2}}\\
+    &= \frac{\partial E^{n}}{\partial a_{2}} \cdot \frac{\partial a_{2}}{\partial z_{2}} \cdot \frac{\partial z_{2}}{\partial b_{2}}\\
+    &= -(y-a_{2}) \cdot \sigma(a_{1}W_{2}+b_{2})(1-\sigma(a_{1}W_{2}+b_{2})) \cdot 1\\
+    &=-\begin{pmatrix}
+        y_{1}  -  a_{2;11} \\
+        \vdots \\
+        y_{n}  -  a_{2;n1}  \\
+        \end{pmatrix} \cdot \begin{pmatrix}
+                            \sigma (z_{2;11}) \\
+                            \vdots \\
+                            \sigma (z_{2;n1})  \\
+                            \end{pmatrix} \cdot \begin{pmatrix}
+                                                    1-\sigma (z_{2;11}) \\
+                                                    \vdots \\
+                                                    1-\sigma (z_{2;n1})  \\
+                                                    \end{pmatrix} \cdot 1 \\\\
+    dW_{1} &= \frac{\partial E^{n}}{\partial W_{1}}\\
+    &= \delta_{1} \cdot X\\\\
+\end{align*}
+\begin{align*}    
+    \Rightarrow \delta_{1} &= \frac{E^{n}}{\partial z_{1}}\\
+    &= \sum_{k} \frac{\partial E^{n}}{\partial z_{2}}\cdot \frac{\partial z_{2}}{\partial z_{1}}\\
+    &= \sum_{k} \delta_{2} \cdot \frac{\partial z_{2}}{\partial z_{1}}\\
+    &= \sum_{k} \delta_{2}\cdot \frac{\partial }{\partial a_{1}}(a_{1}W_{2}+b_{2})\cdot \frac{\partial }{\partial z_{1}}\sigma(X\cdot W_{1} +b_{1})\\
+    &= \sum_{k} \delta_{2}\cdot W_{2} \cdot \sigma(X\cdot W_{1}+b_{1})(1- \sigma(X\cdot W_{1}+b_{1}))\\
+    \Rightarrow dW_{1}&= \delta_{2} \cdot \begin{pmatrix}
+                        w_{2;11} \\
+                        \vdots \\
+                        w_{2;m1} \\
+                        \end{pmatrix} \cdot \begin{pmatrix}
+                                            \sigma (z_{1;11})& \cdots & \sigma(z_{1;1m}) \\
+                                            \vdots & \ddots &\vdots\\
+                                            \sigma (z_{1;n1}) & \cdots & \sigma (z_{1;nm})  \\
+                                            \end{pmatrix} \cdot \begin{pmatrix}
+                                                                1-\sigma (z_{2;11}) \\
+                                                                \vdots \\
+                                                                1-\sigma (z_{2;n1})  \\
+                                                                \end{pmatrix} \cdot \begin{pmatrix}
+                                                                                         x_{11} & x_{12}\\
+                                                                                         \vdots & \vdots\\
+                                                                                         x_{n1} & x_{n2}\\
+                                                                                        \end{pmatrix} \\\\
+    db_{1} &= \delta_{1} \cdot \frac{\partial}{\partial b_{1}}\sigma(X\cdot W_{1}+b_{1})\\
+    &= \delta_{1} \cdot 1\\
+    &= \delta_{2} \cdot \begin{pmatrix}
+                        w_{2;11} \\
+                        \vdots \\
+                        w_{2;m1} \\
+                        \end{pmatrix} \cdot \begin{pmatrix}
+                                            \sigma (z_{1;11})& \cdots & \sigma(z_{1;1m}) \\
+                                            \vdots & \ddots &\vdots\\
+                                            \sigma (z_{1;n1}) & \cdots & \sigma (z_{1;nm})  \\
+                                            \end{pmatrix} \cdot \begin{pmatrix}
+                                                                1-\sigma (z_{2;11}) \\
+                                                                \vdots \\
+                                                                1-\sigma (z_{2;n1})  \\
+                                                                \end{pmatrix} \cdot 1
+\end{align*}
 \subsection{Quellcode zu Booklet Teil 2}
 \pagebreak
 \subsection{Quellcode zu Booklet Teil 3}
