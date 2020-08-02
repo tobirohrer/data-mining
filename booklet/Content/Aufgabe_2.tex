@@ -2,6 +2,11 @@
 \section{Aufgabe 2: Neuronale Netze}
 \subsection{Neuronale Netze mit Numpy}
 \subsubsection{Implementierung Backprop mit einem Hidden Layer}
+Die Herleitung der Backpropagation basiert auf der Kostenfunktion, die den Fehler der Output Schicht beschreibt, sowie den Definitionen der einzelnen Gradienten. Es wird mit den Gewichten zwischen dem Hidden und dem Output Layer gestartet (d$W_{2}$), da nur für die Output Schicht ein messbarer Fehler vorliegt. Im ersten Schritt wird die Kostenfunktion in die  Definition d$W_{2}$ eingesetzt und anschließend die partielle Ableitung gebildet. Diese teilt sich auf in ein $\delta_{2}$, welches den Fehler und die abgeleitete Aktivierungsfunktion enthält, und den Outputs der Hidden Schicht ($a_{1}$). Für die Gewichte des Bias der Hidden Schicht (d$b_{2}$) wird der Output-Term durch 1 ersetzt, da dieser für den Bias immer konstant 1 beträgt.\\
+\noindent \hspace*{7mm}
+Für die Gradienten zwischen der Input Schicht und der Hidden Schicht wir das gleiche Vorgehen genutzt. Da kein direkter Fehler gemessen werden kann, wird der Fehler-Term durch den backpropagierten gewichteten Fehler der Output Schicht ersetzt. Dieser gewichtete Fehler ergibt sich aus dem $\delta$ der jeweils nachfolgenden Schicht. Der Output-Term entspricht hier den Inputs ($X$), die durch die Stichprobendaten gegeben sind.\\
+\noindent \hspace*{7mm}
+In Anhang \ref{app:ergaenzung_booklet_2} ist die mathematische Ausarbeitung des beschriebenen Vorgehens zu finden. Zusätzlich findet sich in Anhang \ref{app:quellcode_booklet_2} die dazugehörige Python-Implementierung.
 \subsubsection{Hyperparameter}
 Im folgenden werden Hyperparameter beschrieben, sowie ihre Auswirkungen auf das Neuronale Netzwerk diskutiert.
 \begin{description}

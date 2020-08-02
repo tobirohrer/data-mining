@@ -38,7 +38,7 @@ Abbildungen \ref{fig:ccp_maxDepth_alpha_001} und \ref{fig:ccp_maxDepth_alpha_004
 \pagebreak
 \subsection{Quellcode zu Booklet Teil 1}
 \pagebreak
-\subsection{Ergänzungen zu Booklet Teil 2}
+\subsection{Ergänzungen zu Booklet Teil 2} \label{app:ergaenzung_booklet_2}
 Folgend ist die mathematische Herleitung der Backpropagation für das in Aufgabe 1 gegebene Modell aufgeführt.\\\\
 y: Beobachtete Werte der Stichprobe\\
 $a_{2}=\hat{\pi}$\\
@@ -49,7 +49,7 @@ $\sigma$ = Sigmoid-Funktion
     &= \frac{\partial E^{n}}{\partial a_{2}} \cdot \frac{\partial a_{2}}{\partial z_{2}} \cdot \frac{\partial z_{2}}{\partial W_{2}}\\
     &= \frac{\partial }{\partial a_{2}} \frac{1}{2}(y-a_{2})^{2} \cdot \frac{\partial }{\partial z_{2}} \sigma(a_{1}W_{2} + b_{2})\cdot \frac{\partial }{\partial W_{2}}(a_{1}W_{2}+b_{2})\\
     &= -(y-a_{2}) \cdot \sigma(a_{1}W_{2}+b_{2})(1-\sigma(a_{1}W_{2}+b_{2}))\cdot a_{1}\\
-    &=-\begin{pmatrix}
+    &= \left[ -\begin{pmatrix}
         y_{1}  -  a_{2;11} \\
         \vdots \\
         y_{n}  -  a_{2;n1}  \\
@@ -61,17 +61,17 @@ $\sigma$ = Sigmoid-Funktion
                                                     1-\sigma (z_{2;11}) \\
                                                     \vdots \\
                                                     1-\sigma (z_{2;n1})  \\
-                                                    \end{pmatrix} \cdot \begin{pmatrix}
+                                                    \end{pmatrix}\right]^{T} \cdot \begin{pmatrix}
                                                                         a_{1;11} & \cdots & a_{1;1m} \\
                                                                         \vdots & \ddots & \vdots \\
                                                                         a_{1;n1}&\cdots & a_{1;nm}  \\
-                                                                        \end{pmatrix} \\\\
+                                                                        \end{pmatrix}\\\\
     \Rightarrow \delta_{2} &= \frac{\partial E^{n}}{\partial z_{2}}\\
      \delta_{2} &= -(y-a_{2}) \cdot \sigma(a_{1}W_{2}+b_{2})(1-\sigma(a_{1}W_{2}+b_{2}))\\\\
     db_{2} &= \frac{\partial E^{n}}{\partial b_{2}}\\
     &= \frac{\partial E^{n}}{\partial a_{2}} \cdot \frac{\partial a_{2}}{\partial z_{2}} \cdot \frac{\partial z_{2}}{\partial b_{2}}\\
     &= -(y-a_{2}) \cdot \sigma(a_{1}W_{2}+b_{2})(1-\sigma(a_{1}W_{2}+b_{2})) \cdot 1\\
-    &=-\begin{pmatrix}
+    &=\left[-\begin{pmatrix}
         y_{1}  -  a_{2;11} \\
         \vdots \\
         y_{n}  -  a_{2;n1}  \\
@@ -83,7 +83,11 @@ $\sigma$ = Sigmoid-Funktion
                                                     1-\sigma (z_{2;11}) \\
                                                     \vdots \\
                                                     1-\sigma (z_{2;n1})  \\
-                                                    \end{pmatrix} \cdot 1 \\\\
+                                                    \end{pmatrix}\right]^{T} \cdot \begin{pmatrix}
+                                                                            1 \\
+                                                                            \vdots \\
+                                                                            1  \\
+                                                                            \end{pmatrix} \\\\
     dW_{1} &= \frac{\partial E^{n}}{\partial W_{1}}\\
     &= \delta_{1} \cdot X\\\\
 \end{align*}
@@ -126,7 +130,7 @@ $\sigma$ = Sigmoid-Funktion
                                                                 1-\sigma (z_{2;n1})  \\
                                                                 \end{pmatrix} \cdot 1
 \end{align*}
-\subsection{Quellcode zu Booklet Teil 2}
+\subsection{Quellcode zu Booklet Teil 2} \label{app:quellcode_booklet_2}
 \pagebreak
 \subsection{Quellcode zu Booklet Teil 3}
 \pagebreak
