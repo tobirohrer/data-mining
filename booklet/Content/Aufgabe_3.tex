@@ -27,6 +27,16 @@ Um eine optimale Einstellung der Hyperparameter pro Verfahren zu finden, wurde m
 \label{section:univariat}
 %TODO: Beschreibung wegen erweiterung des Parameterraums, falls das Optimum das maximum oder minimum des Raumes dargestellt hat.
 Die aus der Aufgabenstellung angegebenen Hyperparameter wurden zunächst einzeln (univariat) variiert, um nach einem optimalen Wert pro Hyperparameter zu suchen. Pro Hyperparameter wird also ein einzelner Parameterraum definiert. Hierbei wurde die Suche in zwei Durchläufen durchgeführt. Der Hyperparameter, durch dessen Konfiguration, weg von seiner Standardeinstellung, die größte positive Auswirkung auf die Klassifizierungsgenauigkeit erzielt werden konnte, wurde für den  nächsten Durchgang fest konfiguriert und aus dem zu suchenden Parameterraum entfernt. Die Ergebnisse der \emph{Grid Search} pro Modell und Hyperparameter sind in Tabelle \ref{table:gridsearch} dargestellt. Die \textbf{fett} geschriebenen Werte wurden jeweils nach dem Ersten der beiden \emph{Grid Search} Durchläufe festgelegt. Die Werte, die mit * gekennzeichnet sind, weichen von den Standardeinstellungen ab. Zu beachten ist, dass der Hyperparameter \emph{n\_estimators} durch eingeschränkte Rechenkapazitäten auf ein oberes Limit von 100 begrenzt wurde. Eine vollständige Auflistung der durchsuchten Parameterräume pro Hyperparameter ist in Tabelle \ref{table:parameter_grid_univariat} im Anhang zu finden.
+
+In Abbildung \ref{fig:grid_search_max_depth_tree} ist  beispielhaft der Durchlauf einer \emph{Grid Search} nach der optimalen maximalen Tiefe eines Entscheidungsbaums visualisiert. Dem Beispiel, kann entnommen werden, dass eine optimale Klassifizierungsgenauigkeit auf die Testdaten für die Tiefe 5 erreicht werden kann. Bei tieferen Bäumen kommt es zu overfitting, was an der steigenden Klassifizierungsgenauigkeit der Testdaten gesehen werden kann.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width = 0.5\textwidth]{Bilder/grid_searh_decision_tree_max_depth.png}
+	\caption{Klassifizierungsgenauigkeit eines Entscheidungsbaums abhängig des Hyperparameters \emph{max\_depth}}
+	\label{fig:grid_search_max_depth_tree}
+\end{figure}
+
  
 \subsubsection{Multivariat}
 Im Gegensatz zu Abschnitt \ref{section:univariat} werden im folgenden Parameterräume definiert, die mehr als einen Hyperparameter umfassen. Somit können auch optimale Kombinationen von Hyperparameter-Einstellungen untersucht werden. Hierbei sollte darauf geachtet werden, dass die Rechenzeit einer \emph{Grid Search} exponentiell mit der Größe des Parameterraums ansteigt. 
