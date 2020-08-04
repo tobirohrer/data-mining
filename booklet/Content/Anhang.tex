@@ -133,5 +133,24 @@ $\sigma$ = Sigmoid-Funktion
 \subsection{Quellcode zu Booklet Teil 2} \label{app:quellcode_booklet_2}
 \pagebreak
 \subsection{Quellcode zu Booklet Teil 3}
+\subsection{Ergänzende Tabellen zu Teil 3}
+\begin{table}[]
+	\centering
+	\begin{tabular}{ll}
+		\hline
+		Hyperparameter              & Parameterraum                              \\ \hline
+		n\_estimators               & {[}10, 50, 100{]}                          \\
+		criterion                   & {[}gini, entropy{]}                    \\
+		max\_depth                  & {[}None, 3,5,10, 15, 20, 25, 50{]}         \\
+		min\_samples\_split         & {[}2, 5,10, 20, 30, 40{]}                  \\
+		min\_samples\_leaf          & {[}1, 2, 5, 10, 20, 40, 100, 200{]}                  \\
+		min\_weight\_fraction\_leaf & {[}0, 0.2, 0.4, 0.5{]}                     \\
+		max\_features               & {[}None, 5, 10, 15 ,20, 25{]}              \\
+		max\_leaf\_nodes            & {[}None, 2 ,10, 100, 150, 200, 300, 500{]} \\
+		min\_impurity\_decrease     & {[}0.0, 0.1, 0.2, 0.5, 0.8, 1, 2, 3{]}     \\
+		min\_impurity\_split        & {[}0.0, 0.1, 0.2, 0.5, 0.8, 1, 2, 3{]}     \\ \hline
+	\end{tabular}
+	\caption{\label{table:parameter_grid_univariat} Parameterräume der univariaten \emph{Grid Search}}
+\end{table}
 \pagebreak
 \subsection{Quellcode zu Booklet Teil 4}
