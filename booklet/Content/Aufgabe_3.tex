@@ -5,10 +5,10 @@
 		\hline
 		& Entscheidungsbaum & AdaBoost & Random Forest & Bagging \\ \hline
 		n\_estimators               &               &        100*          &   100    & \textbf{100}*    \\
-		criterion                   &      gini*         &            gini*       &   gini*       & entropy \\
+		criterion                   &      gini         &            gini       &   gini       & entropy* \\
 		max\_depth                  &    \textbf{5}*           &          \textbf{20}*          &    None      & 10*      \\
 		min\_samples\_split         &     40*          &      2            &    \textbf{5}*      & 20*      \\
-		min\_samples\_leaf          &     40*         &        1           &    1       & 10*      \\
+		min\_samples\_leaf          &     100*         &        1           &    1       & 10*      \\
 		min\_weight\_fraction\_leaf &   0           &     0              &    0       & 0       \\
 		max\_features               &         25*      &          None         &   5*       & 20*      \\
 		max\_leaf\_nodes            &       None        &       None            &    None      & None     \\
@@ -26,10 +26,10 @@ Um eine optimale Einstellung der Hyperparameter pro Verfahren zu finden, wurde m
 \subsubsection{Univariat}
 \label{section:univariat}
 %TODO: Beschreibung wegen erweiterung des Parameterraums, falls das Optimum das maximum oder minimum des Raumes dargestellt hat.
-Die aus der Aufgabenstellung angegebenen Hyperparameter wurden zunächst einzeln (univariat) variiert, um nach einem optimalen Wert pro Hyperparameter zu suchen. Pro Hyperparameter wird also ein einzelner Parameterraum definiert. Hierbei wurde die Suche in zwei Durchläufen durchgeführt. Der Hyperparameter, durch dessen Konfiguration, weg von seiner Standardeinstellung, die größte positive Auswirkung auf die Klassifizierungsgenauigkeit erzielt werden konnte, wurde für den  nächsten Durchgang fest konfiguriert und aus dem zu suchenden Parameterraum entfernt. Die Ergebnisse der \emph{Grid Search} pro Modell und Hyperparameter sind in Tabelle \ref{table:gridsearch} dargestellt. Die \textbf{fett} geschriebenen Werte wurden jeweils nach dem Ersten der beiden \emph{Grid Search} Durchläufe festgelegt. Die Werte, die mit * gekennzeichnet sind, weichen von den Standardeinstellungen ab. Zu beachten ist, dass der Hyperparameter \emph{n\_estimators} durch eingeschränkte Rechenkapazitäten auf ein oberes Limit von 100 begrenzt wurde. Eine vollständige Auflistung der durchsuchten Parameterräume pro Hyperparameter ist in Tabelle X im Anhang zu finden.
+Die aus der Aufgabenstellung angegebenen Hyperparameter wurden zunächst einzeln (univariat) variiert, um nach einem optimalen Wert pro Hyperparameter zu suchen. Pro Hyperparameter wird also ein einzelner Parameterraum definiert. Hierbei wurde die Suche in zwei Durchläufen durchgeführt. Der Hyperparameter, durch dessen Konfiguration, weg von seiner Standardeinstellung, die größte positive Auswirkung auf die Klassifizierungsgenauigkeit erzielt werden konnte, wurde für den  nächsten Durchgang fest konfiguriert und aus dem zu suchenden Parameterraum entfernt. Die Ergebnisse der \emph{Grid Search} pro Modell und Hyperparameter sind in Tabelle \ref{table:gridsearch} dargestellt. Die \textbf{fett} geschriebenen Werte wurden jeweils nach dem Ersten der beiden \emph{Grid Search} Durchläufe festgelegt. Die Werte, die mit * gekennzeichnet sind, weichen von den Standardeinstellungen ab. Zu beachten ist, dass der Hyperparameter \emph{n\_estimators} durch eingeschränkte Rechenkapazitäten auf ein oberes Limit von 100 begrenzt wurde. Eine vollständige Auflistung der durchsuchten Parameterräume pro Hyperparameter ist in Tabelle \ref{table:parameter_grid_univariat} im Anhang zu finden.
  
 \subsubsection{Multivariat}
-Im Gegensatz zu Abschnitt \ref{section:univariat} werden im folgenden Parameterräume definiert, die mehr als einen Hyperparameter umfassen. Somit können auch optimale Kombinationen von Hyperparameter-Einstellungen untersucht werden. Hierbei sollte darauf geachtet werden, dass die Rechenzeit einer \emph{Grid Search} exponentiell mit der Größe des Parameterraums ansteigt.
+Im Gegensatz zu Abschnitt \ref{section:univariat} werden im folgenden Parameterräume definiert, die mehr als einen Hyperparameter umfassen. Somit können auch optimale Kombinationen von Hyperparameter-Einstellungen untersucht werden. Hierbei sollte darauf geachtet werden, dass die Rechenzeit einer \emph{Grid Search} exponentiell mit der Größe des Parameterraums ansteigt. 
 
 \subsubsection{Ergebnisse}
 Die Klassifizierungsergebnisse der Verfahren mit Standard Einstellungen, sowie nach einer multivariaten und univariaten \emph{Grid Search} sind in Tabelle \ref{table:results_grid} zu finden.
@@ -38,9 +38,9 @@ Die Klassifizierungsergebnisse der Verfahren mit Standard Einstellungen, sowie n
 	\begin{tabular}{lllll}
 		\hline
 		& Entscheidungsbaum & AdaBoost & Random Forest & Bagging \\ \hline
-		Default Einstellungen         &    79.07\%               &          &  86,36\%             &  85,67\%       \\
-		Nach univariater Grid Search   &  84.33\%              &          &        86,43\%       &    86,13\%     \\
-		Nach multivariater Grid Search &                   &          &               &         \\ \hline
+		Default Einstellungen         &    79.07\%               &  78,64\%        &  86,36\%             &  85,67\%       \\
+		Nach univariater \emph{Grid Search}   &  84.77\%              &  86,64\%        &        86,43\%       &    86,13\%     \\
+		Nach multivariater \emph{Grid Search} &                   &          &               &         \\ \hline
 	\end{tabular}
 	\caption{\label{table:results_grid} Klassifizierungsgenauigkeiten der Ensemblemethoden vor und nach der Optimierung durch \emph{Grid Search}}
 \end{table}
