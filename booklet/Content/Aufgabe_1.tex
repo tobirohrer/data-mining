@@ -69,30 +69,28 @@ Um das Modell nach Abschluss anhand der Klassifizierungsgenauigkeit bewerten zu 
 % Quelle: https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html\\
 Der Entscheidungsbaum wurde mit Hilfe der \emph{scikit-learn}-Bibliothek erstellt \cite{scikit-learn}. Im ersten Aufgabenteil werden dazu die Standard-Einstellungen des Moduls genutzt. Diese sehen weder eine Beschränkung in der Tiefe des Baumes, noch Kriterien für eine Aufspaltung vor. Als Resultat wächst der Baum weiter, bis alle Blätter im Baum ausschließlich Werte einer Klasse enthalten. Das Ergebnis für die hier untersuchten Wetterdaten ist ein Baum, der sich an die Trainingsdaten überangepasst hat. In Abbildung \ref{fig:treedefault} ist ein Entscheidungsbaum mit den Standard-Einstellungen dargestellt. Die vielen Knoten und Blätter weisen auf eine Überanpassung an die Trainingsdaten hin. Ein weiterer Nachteil des Baums mit Standard-Einstellungen ist, dass die Entscheidungskriterien nur schwer interpretierbar sind. Ein weiterer Hinweis auf eine Überanpassung stellt die Korrektklassifizierungsrate der Trainingsdaten von 100\% dar. Zum Vergleich werden nur 79,18\% der Testdaten korrekt klassifiziert.
 
-\begin{figure}[h]
-	\centering
-	\includegraphics[width = 0.6\textwidth]{Bilder/treedefault}
-	\caption{Entscheidungsbaum mit Default-Einstellungen}
-	\label{fig:treedefault}
-\end{figure}
-
 
 \subsubsection{Variationen}
-%TODO: Hier fehlt noch wofür man sich entscheiden soll und warum. Bei den Einzelnen Parametern sollte glaube beschrieben werden was sie genau bewirken. Plots können hier imho raus.
 Um einen leichter zu interpretierbaren und generalisierbaren Entscheidungsbaum erzeugen zu können, werden verschiedenen Einstellungen für die folgenden Hyperparameter angewandt. 
 
 
 \begin{figure}[H]
     \centering
-     \begin{minipage}{0.45\textwidth}
+         \begin{minipage}{0.31\textwidth}
+		\centering
+		\includegraphics[width = 1\textwidth]{Bilder/treedefault}
+		\caption{Entscheidungsbaum mit Default-Einstellungen}
+		\label{fig:treedefault}
+    \end{minipage}\hfill
+     \begin{minipage}{0.31\textwidth}
         \centering
-        \includegraphics[width=0.9\textwidth]{Bilder/treeMaxDepth} % first figure itself
+        \includegraphics[width=1\textwidth]{Bilder/treeMaxDepth} % first figure itself
         \caption{Struktur eines Entscheidungsbaums mit \emph{max\_depth = 5}}
         \label{fig:treeMaxDepth}
     \end{minipage}\hfill
-    \begin{minipage}{0.45\textwidth}
+    \begin{minipage}{0.31\textwidth}
         \centering
-        \includegraphics[width=0.9\textwidth]{Bilder/treeMinImpurityDecrease} % first figure itself
+        \includegraphics[width=1\textwidth]{Bilder/treeMinImpurityDecrease} % first figure itself
         \caption{Struktur eines Entscheidungsbaums mit \emph{min\_impurity\_decrease = 0.001}}
         \label{fig:treeMinImpurityDecrease}
     \end{minipage}\hfill
@@ -105,11 +103,14 @@ Auf den Abbildungen \ref{fig:treeMaxDepth} bis \ref{fig:treeCriterion} sind exem
 	 definiert die maximale Tiefe des Entscheidungsbaumes. Tiefe Bäume neigen dazu, sich den Trainingsdaten überanzupassen. Flache Bäume dagegen neigen dazu, die Trainingsdaten unteranzupassen. Auf Abbildung \ref{fig:grid_search_max_depth_tree} aus Kapitel \ref{section:univariat} ist die Balance zwischen über- und unteranpassung mit variierender \emph{max\_depth} dargestellt. Die beste Klassifizierungsgenauigkeit konnte mit einer maximalen Tiefe von 5 erreicht werden. Eine exemplarische Darstellung der Struktur eines Entscheidungsbaums der Tiefe 5 ist in Abbildung \ref{fig:treeMaxDepth} dargestellt.
 
 	\item[\emph{min\_impurity\_decrease}] 
-	legt fest, zu welchem Anteil die Unschärfe reduziert werden muss, sodass eine Aufteilung eines Knotens stattfindet. Dies hat, wie in Abbildung \ref{fig:treeMinImpurityDecrease} zu sehen, eine direkte Auswirkung auf die Tiefe des Entscheidungsbaums und steht deshalb in Wechselwirkung mit dem Hyperparameter \emph{max\_depth}. Das Ergebnis einer \emph{Grid Search} nach einer optimalen Einstellung von \emph{min\_impurity\_decrease} kann Abbildung \ref{fig:grid_search_impurity_decrease} entnommen werden.
+	legt fest, zu welchem Anteil die Unschärfe reduziert werden muss, sodass eine Aufteilung eines Knotens stattfindet. Dies hat, wie in Abbildung \ref{fig:treeMinImpurityDecrease} zu sehen, auch eine direkte Auswirkung auf die Tiefe des Entscheidungsbaums. Das Ergebnis einer \emph{Grid Search} nach einer optimalen Einstellung von \emph{min\_impurity\_decrease} kann Abbildung \ref{fig:grid_search_impurity_decrease} entnommen werden.
 	
 	\item[\emph{criterion}]
-	definiert das Kriterium, an dem die Qualität einer Aufteilung gemessen wird. Die \emph{scikit-learn}-Bibliothek unterstützt hierbei den Gini-Index, und eine Messung des Informationsgewinns mittels der Entropie. Die Wahl des Gini-Index liefert hierbei unabhängig von den andern beiden Hyperparameter-Einstellungen ein minimal besseres Ergebnis.
+	definiert das Kriterium, an dem die Qualität einer Aufteilung gemessen wird. Die \emph{scikit-learn}-Bibliothek unterstützt hierbei den Gini-Index, und eine Messung des Informationsgewinns mittels der Entropie. Die Wahl des Gini-Index liefert hierbei unabhängig von den andern beiden Hyperparameter-Einstellungen ein minimal besseres Ergebnis. Außerdem ist die Berechnung des Informationsgewinns mit Hilfe der Entropie durch die logarithmische Funktion aufwändiger. In \cite{gini_entropy} wird der Unterschied zwischen Informationsgewinn und Gini-Index näher untersucht.
 \end{description}
+
+Wie bereits erwähnt haben die beiden Hyperparameter \emph{max\_depth} und \emph{min\_impurity\_decrease} eine Auswirkung auf die Tiefe des Entscheidungsbaums. Das Setzen von \emph{min\_impurity\_decrease} anstelle von  \emph{max\_depth} hat den Vorteil, dass dies eine eher weiche Abbruchbedingung während des Trainings darstellt. Somit ist die Gefahr der Unteranpassung geringer. Die Wahl des Gini-Index als Entscheidungskriterium für eine Aufteilung liefert minimal bessere Ergebnisse und ist unaufwändiger zu berechnen.
+
 
 \begin{figure}[ht]
 	\centering
