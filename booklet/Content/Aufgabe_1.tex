@@ -122,7 +122,7 @@ Wie bereits erwähnt haben die beiden Hyperparameter \emph{max\_depth} und \emph
 %TODO: Fazit und noch mal drüber lesen....
 
 \subsubsection{Minimal Cost-Complexity-Pruning}
-Eine Möglichkeit der Vermeidung des Overfittings bietet das \emph{Cost-Complexitiy Pruning} als \emph{post-pruning} Methode. Dabei wird der voll ausgebildete Baum iterativ beschnitten, indem diejenigen Teilbäume entfernt werden, die einen festgelegten penalisierten Fehlerterm minimieren.\\
+Eine Möglichkeit der Vermeidung des Overfittings bietet das \emph{Cost-Complexitiy Pruning} als sogenannte \emph{Post-Pruning}-Methode. Dabei wird der voll ausgebildete Baum iterativ beschnitten, indem diejenigen Teilbäume entfernt werden, die einen festgelegten penalisierten Fehlerterm minimieren.\\
 \noindent \hspace*{7mm}
 Das Modul \emph{DecisionTreeClassifier} bestimmt für jeden Knoten den effektiven $\alpha$-Wert. Dabei entpricht $\alpha_{eff}$ dem $\alpha$, für das gilt: $R_{\alpha}(T_{t})=R_{\alpha}(t)$. Der Knoten mit dem geringsten effektiven $\alpha$ wird vom Baum abgeschnitten. Dieses Vorgehen wird solange wiederholt, bis der geringste effektive $\alpha$-Wert größer als der gegebenen Penalisierungs-Term \emph{ccp\_alpha} ist.\\
 \noindent \hspace*{7mm}
