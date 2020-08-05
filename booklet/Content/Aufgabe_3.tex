@@ -28,18 +28,19 @@ Um eine optimale Einstellung der Hyperparameter pro Verfahren zu finden, wurde m
 %TODO: Beschreibung wegen erweiterung des Parameterraums, falls das Optimum das maximum oder minimum des Raumes dargestellt hat.
 Die aus der Aufgabenstellung angegebenen Hyperparameter wurden zunächst einzeln (univariat) variiert, um nach einem optimalen Wert pro Hyperparameter zu suchen. Pro Hyperparameter wird also ein einzelner Parameterraum definiert. Hierbei wurde die Suche in zwei Durchläufen durchgeführt. Der Hyperparameter, durch dessen Konfiguration, weg von seiner Standardeinstellung, die größte positive Auswirkung auf die Klassifizierungsgenauigkeit erzielt werden konnte, wurde für den  nächsten Durchgang fest konfiguriert und aus dem zu suchenden Parameterraum entfernt. Die Ergebnisse der \emph{Grid Search} pro Modell und Hyperparameter sind in Tabelle \ref{table:gridsearch} dargestellt. Die \textbf{fett} geschriebenen Werte wurden jeweils nach dem Ersten der beiden \emph{Grid Search} Durchläufe festgelegt. Die Werte, die mit * gekennzeichnet sind, weichen von den Standardeinstellungen ab. Zu beachten ist, dass der Hyperparameter \emph{n\_estimators} durch eingeschränkte Rechenkapazitäten auf ein oberes Limit von 100 begrenzt wurde. Eine vollständige Auflistung der durchsuchten Parameterräume pro Hyperparameter ist in Tabelle \ref{table:parameter_grid_univariat} im Anhang zu finden.
 
-In Abbildung \ref{fig:grid_search_max_depth_tree} ist  beispielhaft der Durchlauf einer \emph{Grid Search} nach der optimalen maximalen Tiefe eines Entscheidungsbaums visualisiert. Dem Beispiel, kann entnommen werden, dass eine optimale Klassifizierungsgenauigkeit auf die Testdaten für die Tiefe 5 erreicht werden kann. Bei tieferen Bäumen kommt es zu overfitting, was an der steigenden Klassifizierungsgenauigkeit der Testdaten gesehen werden kann.
+In Abbildung \ref{fig:grid_search_max_depth_tree} ist  beispielhaft der erste Durchlauf einer \emph{Grid Search} nach dem Hyperparameter \emph{max\_depth} dargestellt. Es ist zu sehen, dass das \emph{Bagging}-Verfahren, sowie der \emph{Random Forest} robuster gegenüber einer Überanpassung an die Trainingsdaten sind. Zu beachten ist, dass die in der Abbildung dargestellten Kurven auf den Train- und Testdaten aus der 10-fachen Kreuzvalidierung basieren. 
 
+%TODO: Testdaten bei cross validation.
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width = 0.5\textwidth]{Bilder/grid_searh_decision_tree_max_depth.png}
-	\caption{Klassifizierungsgenauigkeit eines Entscheidungsbaums abhängig des Hyperparameters \emph{max\_depth}}
+	\includegraphics[width = 0.9\textwidth]{Bilder/grid_search_max_depth.png}
+	\caption{Klassifizierungsgenauigkeit abhängig des Hyperparameters \emph{max\_depth}}
 	\label{fig:grid_search_max_depth_tree}
 \end{figure}
 
  
 \subsubsection{Multivariat}
-Im Gegensatz zu Abschnitt \ref{section:univariat} werden im folgenden Parameterräume definiert, die mehr als einen Hyperparameter umfassen. Somit können auch optimale Kombinationen von Hyperparameter-Einstellungen untersucht werden. Hierbei sollte darauf geachtet werden, dass die Rechenzeit einer \emph{Grid Search} exponentiell mit der Größe des Parameterraums ansteigt. 
+Im Gegensatz zu Abschnitt \ref{section:univariat} werden im folgenden Parameterräume definiert, die mehr als einen Hyperparameter umfassen. Somit können auch optimale Kombinationen von Hyperparameter-Einstellungen untersucht werden. Hierbei sollte darauf geachtet werden, dass die Rechenzeit einer \emph{Grid Search} exponentiell mit der Größe des Parameterraums ansteigt. Demnach werden folgende Hyperparameter von der Suche ausgeschlossen: \emph{n\_estimators}, \emph{min\_samples\_leaf}, \emph{criterion}, \emph{min\_weigh\_fraction\_leaf}, \emph{max\_leaf\_nodes} und \emph{min\_impurity\_split}. Die gewählten Parameterräume, sowie die gewählte Einstellung pro Hyperparameter ist in Tabellen X-X im Anhang zu finden.
 
 \subsubsection{Ergebnisse}
 Die Klassifizierungsergebnisse der Verfahren mit Standard Einstellungen, sowie nach einer multivariaten und univariaten \emph{Grid Search} sind in Tabelle \ref{table:results_grid} zu finden.
@@ -51,7 +52,7 @@ Die Klassifizierungsergebnisse der Verfahren mit Standard Einstellungen, sowie n
 		Default Einstellungen         &    79.07\%               &  78,64\%        &  86,36\%             &  85,67\%       \\
 		Nach zweistufiger\\
 		univariater \emph{Grid Search}   &  84.77\%              &  86,64\%        &        86,43\%       &    86,13\%     \\
-		Nach multivariater \emph{Grid Search} &                   &          &               &         \\ \hline
+		Nach multivariater \emph{Grid Search} &  84,53\%                 &        &   86,34\%              &         \\ \hline
 	\end{tabular}
 	\caption{\label{table:results_grid} Klassifizierungsgenauigkeiten der Ensemblemethoden vor und nach der Optimierung durch \emph{Grid Search}}
 \end{table}
