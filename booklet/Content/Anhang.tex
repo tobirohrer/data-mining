@@ -134,7 +134,8 @@ $\sigma$ = Sigmoid-Funktion
 \pagebreak
 \subsection{Quellcode zu Booklet Teil 3}
 \subsection{Ergänzende Tabellen zu Teil 3}
-\begin{table}[]
+
+\begin{table}[h]
 	\centering
 	\begin{tabular}{ll}
 		\hline
@@ -147,10 +148,69 @@ $\sigma$ = Sigmoid-Funktion
 		min\_weight\_fraction\_leaf & {[}0, 0.2, 0.4, 0.5{]}                     \\
 		max\_features               & {[}None, 5, 10, 15 ,20, 25{]}              \\
 		max\_leaf\_nodes            & {[}None, 2 ,10, 100, 150, 200, 300, 500{]} \\
-		min\_impurity\_decrease     & {[}0.0, 0.1, 0.2, 0.5, 0.8, 1, 2, 3{]}     \\
+		min\_impurity\_decrease     & {[}0.0, 0.001, 0.002, 0.01, 0.1{]}     \\
 		min\_impurity\_split        & {[}0.0, 0.1, 0.2, 0.5, 0.8, 1, 2, 3{]}     \\ \hline
 	\end{tabular}
 	\caption{\label{table:parameter_grid_univariat} Parameterräume der univariaten \emph{Grid Search}}
 \end{table}
+
+\begin{table}[h]
+		\centering
+\begin{tabular}{lll}
+	\hline
+	Hyperparameter          & Parameterraum                       & Gewählter Parameter \\ \hline
+	max\_depth              & {[}None, 5, 10, 15{]}               & None                \\
+	min\_samples\_split     & {[}2, 5, 10{]}                      & 5                   \\
+	max\_features           & {[}None, 5, 20, 25{]}               & None                \\
+	min\_impurity\_decrease & {[}0.00005, 0.0001, 0.001, 0.003{]} & 0.00005             \\ 
+	n\_estimators &  & 100 \\ \hline
+\end{tabular}
+	\caption{\label{table:parameter_grid_multivariat_forest} Parameterräume und Ergebnisse der multivariaten \emph{Grid Search} des Random Forest}
+\end{table}
+
+
+\begin{table}[]
+	\centering
+	\begin{tabular}{lll}
+	\hline
+	Hyperparameter          & Parameterraum                       & Gewählter Parameter \\ \hline
+	max\_depth              & {[}None, 5, 10, 15{]}               & None                \\
+	min\_samples\_split     & {[}2, 5, 10{]}                      & 5                   \\
+	max\_features           & {[}None, 5, 20, 25{]}               & None                \\
+	min\_impurity\_decrease & {[}0.00005, 0.0001, 0.001, 0.003{]} & 0.00001             \\ \hline
+\end{tabular}
+	\caption{\label{table:parameter_grid_multivariat_tree} Parameterräume und Ergebnisse der multivariaten \emph{Grid Search} des Entscheidungsbaums}
+\end{table}
+
+\begin{table}[]
+	\centering
+	\begin{tabular}{lll}
+	\hline
+	Hyperparameter          & Parameterraum                        & Gewählter Parameter \\ \hline
+	max\_depth              & {[}None, 5, 10, 20. 25{]}                & 20                   \\
+	min\_samples\_split     & {[}2, 5, 10, 20{]}                   & 2                  \\
+	max\_features           & {[}None, 5, 20, 25{]}                & None                  \\
+	min\_impurity\_decrease & {[}0.0, 0.0001, 0.0005, 0.001{]} & 0.0             \\ 
+	n\_estimators &  & 100 \\ \hline
+\end{tabular}
+	\caption{\label{table:parameter_grid_multivariat_adaboost} Parameterräume und Ergebnisse der multivariaten \emph{Grid Search} des Adaboost-Verfahrens}
+\end{table}
+
+\begin{table}[]
+	\centering
+	\begin{tabular}{lll}
+	\hline
+	Hyperparameter          & Parameterraum                        & Gewählter Parameter \\ \hline
+	max\_depth              & {[}None, 5, 10, 15{]}                & None                \\
+	min\_samples\_split     & {[}2, 5, 10, 20{]}                   & 10                  \\
+	max\_features           & {[}None, 5, 20, 25{]}                & 5                   \\
+	min\_impurity\_decrease & {[}0.00005, 0.0001, 0.0005, 0.001{]} & 0.0001              \\ 
+	n\_estimators &  & 100 \\ \hline
+\end{tabular}
+	\caption{\label{table:parameter_grid_multivariat_bagging} Parameterräume und Ergebnisse der multivariaten \emph{Grid Search} des Bagging-Verfahrens}
+\end{table}
+
+
+
 \pagebreak
 \subsection{Quellcode zu Booklet Teil 4}
