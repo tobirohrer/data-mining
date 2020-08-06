@@ -1,9 +1,31 @@
 \section{Aufgabe 2: Neuronale Netze}
 \subsection{Neuronale Netze mit Numpy}
 \subsubsection{Implementierung Backprop mit einem Hidden Layer}
-Die Herleitung der Backpropagation basiert auf der Kostenfunktion, die den Fehler der Output Schicht beschreibt, sowie den Definitionen der einzelnen Gradienten. Es wird mit den Gewichten zwischen dem Hidden und dem Output Layer gestartet (d$W_{2}$), da nur für die Output Schicht ein messbarer Fehler vorliegt. Im ersten Schritt wird die Kostenfunktion in die  Definition d$W_{2}$ eingesetzt und anschließend die partielle Ableitung gebildet. Diese teilt sich auf in ein $\delta_{2}$, welches den Fehler und die abgeleitete Aktivierungsfunktion enthält, und den Outputs der Hidden Schicht ($a_{1}$). Für die Gewichte des Bias der Hidden Schicht (d$b_{2}$) wird der Output-Term durch 1 ersetzt, da dieser für den Bias immer konstant 1 beträgt.\\
+Die Herleitung der Backpropagation basiert auf der Kostenfunktion, die den Fehler der Output Schicht beschreibt, sowie den Definitionen der einzelnen Gradienten. Es wird mit den Gewichten zwischen dem Hidden und dem Output Layer gestartet (d$W_{2}$), da nur für die Output Schicht ein messbarer Fehler vorliegt. Im ersten Schritt wird die Kostenfunktion in die  Definition d$W_{2}$ eingesetzt und anschließend die partielle Ableitung gebildet.
+\begin{align*}
+dW_{2} &= \frac{\partial E^{n}}{\partial W_{2}}
+= \frac{\partial E^{n}}{\partial z_{2}}\cdot \frac{\partial z_{2}}{\partial W_{2}}
+\end{align*}
+Diese teilt sich auf in ein $\delta_{2}$, welches den Fehler und die abgeleitete Aktivierungsfunktion enthält, und den Outputs der Hidden Schicht ($a_{1}$).
+\begin{align*}
+\frac{\partial E^{n}}{\partial z_{2}}\cdot \frac{\partial z_{2}}{\partial W_{2}} = \delta_{2} \cdot a_{1}= -(y-a_{2}) \cdot \sigma(a_{1}W_{2}+b_{2})(1-\sigma(a_{1}W_{2}+b_{2}))\cdot a_{1}
+\end{align*}
+Für die Gewichte des Bias der Hidden Schicht (d$b_{2}$) wird der Output-Term durch 1 ersetzt, da dieser für den Bias immer konstant 1 beträgt.
+\begin{align*}
+db_{2} &= \frac{\partial E^{n}}{\partial b_{2}}
+= \delta_{2} = -(y-a_{2}) \cdot \sigma(a_{1}W_{2}+b_{2})(1-\sigma(a_{1}W_{2}+b_{2})) \cdot 1
+\end{align*}
+Für die Gradienten zwischen der Input Schicht und der Hidden Schicht wir das gleiche Vorgehen genutzt. Da kein direkter Fehler gemessen werden kann, wird der Fehler-Term durch den backpropagierten gewichteten Fehler der Output Schicht ersetzt.
+\begin{align*}
+dW_{1} &= \frac{\partial E^{n}}{\partial W_{1}}
+= \frac{\partial E^{n}}{\partial z_{2}}\cdot \frac{\partial z_{2}}{\partial z_{1}} \cdot X = \delta_{2} \cdot \frac{\partial z_{2}}{\partial z_{1}} \cdot X
+\end{align*}
+Dieser gewichtete Fehler ergibt sich aus dem $\delta$ der jeweils nachfolgenden Schicht. Der Output-Term entspricht hier den Inputs ($X$), die durch die Stichprobendaten gegeben sind, sodass gilt:
+\begin{align*}
+dW_{1} &= \delta_{2}\cdot W_{2} \cdot \sigma(X\cdot W_{1}+b_{1})(1- \sigma(X\cdot W_{1}+b_{1})) \cdot X
+\end{align*}
 \noindent \hspace*{7mm}
-Für die Gradienten zwischen der Input Schicht und der Hidden Schicht wir das gleiche Vorgehen genutzt. Da kein direkter Fehler gemessen werden kann, wird der Fehler-Term durch den backpropagierten gewichteten Fehler der Output Schicht ersetzt. Dieser gewichtete Fehler ergibt sich aus dem $\delta$ der jeweils nachfolgenden Schicht. Der Output-Term entspricht hier den Inputs ($X$), die durch die Stichprobendaten gegeben sind.\\
+Wobei für $db_{1}$ für $X$ wieder 1 eingesetzt wird.\\
 \noindent \hspace*{7mm}
 In Anhang \ref{app:ergaenzung_booklet_2} ist die mathematische Ausarbeitung des beschriebenen Vorgehens zu finden. Zusätzlich findet sich in Anhang \ref{app:quellcode_booklet_2} die dazugehörige Python-Implementierung.
 \subsubsection{Hyperparameter}
