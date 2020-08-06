@@ -74,28 +74,16 @@ Der Entscheidungsbaum wurde mit Hilfe der \emph{scikit-learn}-Bibliothek erstell
 \label{variation_tree}
 Um einen leichter zu interpretierbaren und generalisierbaren Entscheidungsbaum erzeugen zu können, werden verschiedenen Einstellungen für die folgenden Hyperparameter angewandt. 
 
-
-\begin{figure}[H]
-    \centering
-         \begin{minipage}{0.31\textwidth}
-		\centering
-		\includegraphics[width = 1\textwidth]{Bilder/treedefault}
-		\caption{Entscheidungsbaum mit Default-Einstellungen}
-		\label{fig:treedefault}
-    \end{minipage}\hfill
-     \begin{minipage}{0.31\textwidth}
-        \centering
-        \includegraphics[width=1\textwidth]{Bilder/treeMaxDepth} % first figure itself
-        \caption{Struktur eines Entscheidungsbaums mit \emph{max\_depth = 5}}
-        \label{fig:treeMaxDepth}
-    \end{minipage}\hfill
-    \begin{minipage}{0.31\textwidth}
-        \centering
-        \includegraphics[width=1\textwidth]{Bilder/treeMinImpurityDecrease} % first figure itself
-        \caption{Struktur eines Entscheidungsbaums mit \emph{min\_impurity\_decrease = 0.001}}
-        \label{fig:treeMinImpurityDecrease}
-    \end{minipage}\hfill
+\begin{figure}[h]
+	\centering
+	\subfloat[Default-Einstellungen]{\includegraphics[width=0.31\textwidth]{Bilder/treedefault}\label{fig:treedefault}}
+	\hfill
+	\subfloat[\emph{max\_depth = 5}]{\includegraphics[width=0.30\textwidth]{Bilder/treeMaxDepth}\label{fig:treeMaxDepth}}
+	\hfill
+	\subfloat[\emph{min\_impurity\_decrease = 0.001}] {\includegraphics[width=0.30\textwidth]{Bilder/treeMinImpurityDecrease}\label{fig:treeMinImpurityDecrease}}
+	\caption{Entscheidungsbäume mit Parameter-Variation}
 \end{figure}
+
 \begin{comment}
 Auf den Abbildungen \ref{fig:treeMaxDepth} bis \ref{fig:treeCriterion} sind exemplarisch Entscheidungsbäume dargestellt, deren Parameter empirisch festgelegt wurden. Bei der Visualisierung liegt der Fokus auf der Struktur des Baumes und nicht darauf, dass die einzelnen Knoten identifiziert werden können.\\
 \end{comment}
