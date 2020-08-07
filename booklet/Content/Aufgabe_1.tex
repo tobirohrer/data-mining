@@ -61,8 +61,6 @@ Für den betrachteten Datensatz wird eine univariate Variablenselektion mit dem 
 %%%
 \end{comment}
 
-
-\vspace{1cm}
 \subsection{Entscheidungsbäume}
 \label{section:Entscheidungsbäume}
 \subsubsection{Aufteilung in Trainings- und Testdaten}
@@ -112,7 +110,7 @@ Eine Möglichkeit der Vermeidung des Overfittings bietet das \emph{Cost-Complexi
 \noindent \hspace*{7mm}
 Das Modul \emph{DecisionTreeClassifier} bestimmt für jeden Knoten den effektiven $\alpha$-Wert. Dabei entpricht $\alpha_{eff}$ dem $\alpha$, für das gilt: $R_{\alpha}(T_{t})=R_{\alpha}(t)$. Der Knoten mit dem geringsten effektiven $\alpha$ wird vom Baum abgeschnitten. Dieses Vorgehen wird solange wiederholt, bis der geringste effektive $\alpha$-Wert größer als der gegebenen Penalisierungs-Term \emph{ccp\_alpha} ist.\\
 \noindent \hspace*{7mm}
-Dabei ist zu beachten, dass die Bäume stärker beschnitten werden, je höher der gegebene Penalisierungs-Term ist, da dieser eine hohe Anzahl an Knoten bestraft (siehe auch \ref{app:abb_booklet_1}).\\
+Dabei ist zu beachten, dass die Bäume stärker beschnitten werden, je höher der gegebene Penalisierungs-Term ist, wohingegen die ursprüngliche Größe keinen Einfluss auf das Endergebnis hat (siehe auch \ref{app:abb_booklet_1}).\\
 \noindent \hspace*{7mm}
 Das Pruning hat Auswirkungen auf die Modellgüte, indem es die Anpassung an die Trainingsdaten reguliert. Wird der Penalisierungs-Term zu hoch gesetzt, besteht die Gefahr der Unteranpassung, ein sehr niedriger Term führt zu Overfitting. In Abbildung \ref{fig:ccp_accuracyVsAlpha} ist beispielhaft für einen Entscheidungsbaum mit Default-Einstellungen die Trainings- und Testgenauigkeit (Accuracy) für verschiedene Pruning-Parameter $\alpha$ dargestellt.
 

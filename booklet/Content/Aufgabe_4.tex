@@ -1,18 +1,19 @@
 \section{Aufgabe 4: Support Vector Machines}
 Support Vector Machines (SVMs) werden zur binären Klassifikation eingesetzt. Sie modellieren Hyperebenen, die den Datenraum in zwei zwei Teile einteilen, die jeweils eine der Zielklassen vertreten. Die Idee besteht darin, Trainingsdaten durch eine Hyperebene zu trennen, sodass ein symmetrischer Bereich um diese Hyperebene (\emph{Margin}), welcher keine Datenpunkte enthält, möglichst groß wird (\emph{Maximum Margin Hyperplane}). Da in der Praxis meist keine linear trennbaren Daten vorliegen, wird in der Trainingsphase eine Missklassifikation von Trainingsdaten toleriert. Jeder Datenpunkt, der dabei nicht außerhalb der Margin liegt oder falsch klassifiziert wird, wird entsprechend durch sogenannte Schlupfvariablen penalisiert. Dabei wird auch von einer \emph{Soft Margin} gesprochen (vgl. \cite{2015_aggarwal}).\\
 \noindent \hspace*{7mm}
-Ist eine lineare Trennung der Daten nicht sinnvoll, kann der \emph{Kernel Trick} angewandt werden. Dabei wird eine definierte Kernfunktion eingesetzt, die die Daten in eine höhere Dimension transformiert, indem die vorhandenen Merkmale (\emph{Input Space}) in weiteren Merkmalen vereint werden (\emph{Feature Space}). In der höheren Dimension können die Daten dann linear geteilt werden. Das Prinzip ist in den Abbildungen \ref{fig:svm_2d} und \ref{fig:svm_3d} visualisiert. Die linke Abbildung zeigt die Daten im zweidimensionalen Raum, in welchem sie nicht linear geteilt werden können. Die rechte Abbildung zeigt die transformierten, drei-dimensionalen Daten. Diese können durch eine Hyperebene geteilt werden.\\
+Ist eine lineare Trennung der Daten nicht sinnvoll, kann der \emph{Kernel Trick} angewandt werden. Dabei wird eine definierte Kernfunktion eingesetzt, die die Daten in eine höhere Dimension transformiert, indem die vorhandenen Merkmale (\emph{Input Space}) in weiteren Merkmalen vereint werden (\emph{Feature Space}). In der höheren Dimension können die Daten dann linear geteilt werden.% Das Prinzip ist in den Abbildungen \ref{fig:svm_2d} und \ref{fig:svm_3d} visualisiert.
+ Die linke Abbildung zeigt die Daten im zweidimensionalen Raum, in welchem sie nicht linear geteilt werden können. Die rechte Abbildung zeigt die transformierten, drei-dimensionalen Daten. Diese können durch eine Hyperebene geteilt werden.\\
 \noindent \hspace*{7mm}
 Bei SVMs werden nach der Trainingsphase nicht alle Trainingsdaten zur Klassifizierung neuer Daten genutzt. Diejenigen Datenpunkte, die zur Klassifikation betrachtet werden heißen \emph{Support Vectors}.
-\begin{figure}[h]
-	\centering
-	\subfloat[zwei-dimensionaler Input-Space]{\includegraphics[width=0.40\textwidth]{Bilder/svm_2d.png}\label{fig:svm_2d}}
-	\hfill
-	\subfloat[drei-dimensionaler Feature-Space]{\includegraphics[width=0.40\textwidth]{Bilder/svm_3d.png}\label{fig:svm_3d}}
-	\caption{Transformation der Daten durch Kernfuntionen (\cite{2018_mello_ponti})}
-\end{figure}
+%\begin{figure}[h]
+%	\centering
+%	\subfloat[zwei-dimensionaler Input-Space]{\includegraphics[width=0.40\textwidth]{Bilder/svm_2d.png}\label{fig:svm_2d}}
+%	\hfill
+%	\subfloat[drei-dimensionaler Feature-Space]{\includegraphics[width=0.40\textwidth]{Bilder/svm_3d.png}\label{fig:svm_3d}}
+%	\caption{Transformation der Daten durch Kernfuntionen (\cite{2018_mello_ponti})}
+%\end{figure}
 \subsection{Beschreibung der Kernel Parameter}
-Folgend sind in Tabelle \ref{tab:svm_kernel} die mathematischen Definitionen der verschiedenen Kernel gelistet. Dabei ist die Einstellung \emph{precomputed} nicht enthalten, da sie keinen definierten Kernel benutzt, sondern nur eine bereits durch einen beliebigen Kernel verarbeitete Matrix entgegennimmt. Zum Beispiel stellt $XX^{T}$ einen linearen Kernel dar. Die Kernel enthalten Parameter die im Folgenden kurz beschrieben werden.
+In Tabelle \ref{tab:svm_kernel} die mathematischen Definitionen der verschiedenen Kernel gelistet. Dabei ist die Einstellung \emph{precomputed} nicht enthalten, da sie keinen definierten Kernel benutzt, sondern nur eine bereits durch einen beliebigen Kernel verarbeitete Matrix entgegennimmt. Zum Beispiel stellt $XX^{T}$ einen linearen Kernel dar. Die Kernel enthalten Parameter die im Folgenden kurz beschrieben werden.
 \begin{table}[h]
 	\centering
 	\begin{tabular}{ll}
@@ -39,5 +40,5 @@ Folgend sind in Tabelle \ref{tab:svm_kernel} die mathematischen Definitionen der
 \end{description}
 Die Kernel unterscheiden sich vor allem in ihrer Komplexität. Der Lineare Kernel ist der einfachste und somit robust gegen Overfitting. Er ist jedoch nicht geeignet, wenn die nicht-transformierten Daten nicht linear trennbar sind. Der polynomiale Kernel erhöht die Flexibilität bei $d>1$, sodass dessen Komplexität von Parameter $d$ bestimmt wird. Der RBF Kernel bildet einen Feature Space mit unendlich vielen Dimensionen und verhält sich ähnlich zu einem \emph{weighted-nearest-neighbour} Klassifizierer, da er mit der euklidischen Distanz ($||x-x^{'}||^{2}$) arbeitet. Daher hat auch dieser Kernel eine höhere Komplexität. Diese wird indirekt über den $\gamma$-Parameter gesteuert. Auch die Komplexität des sigmoid Kernels kann durch $gamma$ reguliert werden.
 \subsection{Modellergebnis}
-Bei einem Durchlauf mit $C=0.1$ und allen anderen Parametern auf Default-Einstellung zeigte der polynomiale Kernel die besten Ergebnisse. Durch das GridSearch Verfahren wurde ein X Kernel mit den Parametern a,b,c als bestes Modell geschätzt. Dieses Modell hat eine \emph{accuracy} von X
+Durch das Grid Search Verfahren wurden für jeden Kernel optimale Hyperparameter gesucht. Als bestes Modell hat der RBF Kernel mit den Parametern $C: 10$ und $\gamma: 'scale'$ eine Accuracy von 86.198 \% erreicht. Tabelle \ref{tab:svm_results_gridSearch} in Anhang \ref{app:svm_ergaenzungen} zeigt detailliert die untersuchten Parameterräume und die Ergebnisse.
 % ... blabla wieso könnten diese Parameter gewählt worden sein. Damit sollte die Frage im AB dann auch geklärt sein.!
