@@ -3,12 +3,16 @@
 
 \subsubsection{Analyse der Zielvariable}
 Wie Abbildung \ref{fig:disc_target_variable} entnommen werden kann, ist die Ausprägung der Zielvariable ungleich auf beide Klassen verteilt. Die Klassifizierungsgenauigkeit eines Modells muss demnach unter Berücksichtigung der sogenannten \emph{Null Accuracy} bewertet werden. Unter \emph{Null Accuracy} versteht man die Genauigkeit eines Modells, dass unabhängig von allen Eingaben immer die am häufigsten auftretende Klasse vorhersagt. In unserem Fall würde ein Modell, welches immer Regen vorhersagt, eine Klassifizierungsgenauigkeit von 79,39\% erreichen. Das Ziel der nachfolgenden Schritte ist also ein Modell mit einer besseren Klassifizierungsgenauigkeit als die \emph{Null Accuracy} aufzubauen.
+
+
 \begin{figure}[ht]
 	\centering
+	\vspace*{-0.9 cm}
 	\includegraphics[width = 0.45\textwidth]{Bilder/distribution_target_variable.png}
 	\caption{Verteilung der Zielvariable}
 	\label{fig:disc_target_variable}
 \end{figure}
+
 \subsubsection{Fehlende Werte}
 Der zu untersuchende Datensatz beinhaltet fehlende Werte. Im Folgenden werden Methoden beschrieben, wie mit den fehlenden Werte umgegangen wurde:
 \begin{description}
@@ -76,6 +80,7 @@ Um einen leichter zu interpretierbaren und generalisierbaren Entscheidungsbaum e
 
 \begin{figure}[h]
 	\centering
+	\vspace*{-0.9 cm}
 	\subfloat[Default-Einstellungen]{\includegraphics[width=0.31\textwidth]{Bilder/treedefault}\label{fig:treedefault}}
 	\hfill
 	\subfloat[\emph{max\_depth = 5}]{\includegraphics[width=0.30\textwidth]{Bilder/treeMaxDepth}\label{fig:treeMaxDepth}}
@@ -100,14 +105,6 @@ Auf den Abbildungen \ref{fig:treeMaxDepth} bis \ref{fig:treeCriterion} sind exem
 
 Wie bereits erwähnt haben die beiden Hyperparameter \emph{max\_depth} und \emph{min\_impurity\_decrease} eine Auswirkung auf die Tiefe des Entscheidungsbaums. Das Setzen von \emph{min\_impurity\_decrease} anstelle von  \emph{max\_depth} hat den Vorteil, dass dies eine eher weiche Abbruchbedingung während des Trainings darstellt. Somit ist die Gefahr der Unteranpassung geringer. Die Wahl des Gini-Index als Entscheidungskriterium für eine Aufteilung liefert minimal bessere Ergebnisse und ist unaufwändiger zu berechnen. Ein Entscheidungsbaum mit der Einstellung \emph{min\_impurity\_decrease} = 5, sowie der Wahl des Gini-Index hat eine Klassifizierungsgenauigkeit von 84,5\% auf die Testdaten.
 
-
-\begin{figure}[ht]
-	\centering
-	\includegraphics[width = 0.5\textwidth]{Bilder/min_impurity_decrease.png}
-	\caption{Klassifizierungsgenauigkeit eines Entscheidungsbaums abhängig des Hyperparameters \emph{min\_impurity\_decrease}}
-	\label{fig:grid_search_impurity_decrease}
-\end{figure}
-
 %TODO: Fazit und noch mal drüber lesen....
 
 \subsubsection{Minimal Cost-Complexity-Pruning}
@@ -118,11 +115,14 @@ Das Modul \emph{DecisionTreeClassifier} bestimmt für jeden Knoten den effektive
 Dabei ist zu beachten, dass die Bäume stärker beschnitten werden, je höher der gegebene Penalisierungs-Term ist, da dieser eine hohe Anzahl an Knoten bestraft (siehe auch \ref{app:abb_booklet_1}).\\
 \noindent \hspace*{7mm}
 Das Pruning hat Auswirkungen auf die Modellgüte, indem es die Anpassung an die Trainingsdaten reguliert. Wird der Penalisierungs-Term zu hoch gesetzt, besteht die Gefahr der Unteranpassung, ein sehr niedriger Term führt zu Overfitting. In Abbildung \ref{fig:ccp_accuracyVsAlpha} ist beispielhaft für einen Entscheidungsbaum mit Default-Einstellungen die Trainings- und Testgenauigkeit (Accuracy) für verschiedene Pruning-Parameter $\alpha$ dargestellt.
+
 \begin{figure}[h]
 	\centering
-	\includegraphics[width = 0.5\textwidth]{Bilder/ccp_accuracyVsAlpha.png}
-	\caption{Trainings- und Testfehler für verschiedene $\alpha$-Werte}
-	\label{fig:ccp_accuracyVsAlpha}
+	\vspace*{-0.8 cm}
+	\subfloat[]{\includegraphics[width=0.53\textwidth]{Bilder/min_impurity_decrease.png}\label{fig:grid_search_impurity_decrease}}
+	\hfill
+	\subfloat[] {\includegraphics[width=0.45\textwidth]{Bilder/ccp_accuracyVsAlpha.png}\label{fig:ccp_accuracyVsAlpha}}
+	\caption{(a): Klassifizierungsgenauigkeit eines Entscheidungsbaums abhängig des Hyperparameters \emph{min\_impurity\_decrease} (b): Trainings- und Testfehler für verschiedene $\alpha$-Werte}
 \end{figure}
 
 
