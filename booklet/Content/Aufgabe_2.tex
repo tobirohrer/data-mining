@@ -20,16 +20,16 @@ Für die Gradienten zwischen der Input Schicht und der Hidden Schicht wir das gl
 dW_{1} &= \frac{\partial E}{\partial W_{1}}
 = \frac{\partial E}{\partial z_{2}}\cdot \frac{\partial z_{2}}{\partial z_{1}} \cdot X = \delta_{2} \cdot \frac{\partial z_{2}}{\partial z_{1}} \cdot X
 \end{align*}
-Dieser gewichtete Fehler ergibt sich aus dem $\delta$ der jeweils nachfolgenden Schicht. Der Output-Term entspricht hier den Inputs ($X$), die durch die Stichprobendaten gegeben sind, sodass gilt:
+Dieser gewichtete Fehler ergibt sich aus dem $\delta$ der jeweils nachfolgenden Schicht (hier $\delta_{2}$). Der Output-Term der vorherigen Schicht entspricht hier den Inputs ($X$), die durch die Stichprobendaten gegeben sind, sodass gilt:
 \begin{align*}
 dW_{1} &= \delta_{2}\cdot W_{2} \cdot \sigma(X\cdot W_{1}+b_{1})(1- \sigma(X\cdot W_{1}+b_{1})) \cdot X
 \end{align*}
 \noindent
-Wobei für $db_{1}$ für $X$ wieder 1 eingesetzt wird.\\
+Wobei für $db_{1}$ statt $X$ wieder 1 eingesetzt wird.\\
 \noindent \hspace*{7mm}
-In Anhang \ref{app:ergaenzung_booklet_2} ist die mathematische Ausarbeitung des beschriebenen Vorgehens zu finden. Zusätzlich findet sich in Anhang \ref{app:quellcode_booklet_2} die dazugehörige Python-Implementierung.
+In Anhang \ref{app:ergaenzung_booklet_2} ist die ausführliche mathematische Ausarbeitung des beschriebenen Vorgehens zu finden. Zusätzlich findet sich in Anhang \ref{app:quellcode_booklet_2} die dazugehörige Python-Implementierung.
 \subsubsection{Hyperparameter}
-Im folgenden werden Hyperparameter beschrieben, sowie ihre Auswirkungen auf das neuronale Netzwerk diskutiert.
+Im Folgenden werden Hyperparameter beschrieben, sowie ihre Auswirkungen auf das neuronale Netzwerk diskutiert.
 \begin{description}
 	\item[Anzahl der Neuronen im Hidden Layer]\hfill \\
 	%TODO: Eigentlcih sollte der Fehler auf die Trainingsdaten bei vielen Neuronen minimal sein. Irgendwie overfittet das Modell nicht klassisch.
@@ -49,9 +49,9 @@ Im folgenden werden Hyperparameter beschrieben, sowie ihre Auswirkungen auf das 
 	
 	\item[Lernrate]\hfill \\
 	%TODO: Bezug auf unser Beispiel herstellen
-	Die Lernrate $\eta$ reguliert die Auswirkung eines einzelnen Schrittes im Gradientenabstiegsverfahrens. Eine hohes $\eta$ führt zwar zu einer schnellen Minimierung des Trainingsfehlers, Jedoch steig die Gefahr, dass das Verfahren gute Minima überspringt, oder auch um ein gutes Minima pendelt. Ein kleineres $\eta$ findet mit einer hohen Wahrscheinlichkeit ein besseres Minima, jedoch werden dafür mehr Iterationen und damit auch mehr Rechenleistung benötigt \cite{neuronalenetze}.
-	
-	In Abbildung \ref*{fig:learning_rates} ist der Trainingsfehler während des Trainingsverlauf bei verschiedenen Lernraten dargestellt. Der Abbildung kann entnommen werden, dass für $\eta=0.01$ das Training nach 300 Epochen immer noch nicht konvergiert ist. Für $\eta=0.2$ ist zu sehen, dass das Verfahren sehr früh konvergiert und daher das Risiko besteht, dass wie oben beschrieben, gute Minima übersprungen wurden. Für komplexere Eingabedaten und Netzwerkarchitekturen würde dies ein reales Problem darstellen. In diesem einfachen Netzwerk und den einfachen Eingabedaten aus der Aufgabenstellung, kann auch mit $\eta=0.2$ ein gutes Ergebnis erreicht werden. Der Mittelweg beider Extreme bildet $\eta=0.1$ und wird als Einstellung vorgenommen.
+	Die Lernrate $\eta$ reguliert die Auswirkung eines einzelnen Schrittes im Gradientenabstiegsverfahrens. Eine hohes $\eta$ führt zwar zu einer schnellen Minimierung des Trainingsfehlers, jedoch steig die Gefahr, dass das Verfahren gute Minima überspringt oder auch um ein gutes Minima pendelt. Ein kleineres $\eta$ findet mit einer hohen Wahrscheinlichkeit ein besseres Minima, jedoch werden dafür mehr Iterationen und damit auch mehr Rechenleistung benötigt \cite{neuronalenetze}.\\
+	\noindent \hspace*{7mm}
+	In Abbildung \ref*{fig:learning_rates} ist der Trainingsfehler während des Trainingsverlauf bei verschiedenen Lernraten dargestellt. Der Abbildung kann entnommen werden, dass für $\eta=0.01$ das Training nach 300 Epochen immer noch nicht konvergiert ist. Für $\eta=0.2$ ist zu sehen, dass das Verfahren sehr früh konvergiert und daher das Risiko besteht, dass wie oben beschrieben gute Minima übersprungen wurden. Für komplexere Eingabedaten und Netzwerkarchitekturen würde dies ein reales Problem darstellen. In diesem einfachen Netzwerk und den einfachen Eingabedaten aus der Aufgabenstellung, kann auch mit $\eta=0.2$ ein gutes Ergebnis erreicht werden. Der Mittelweg beider Extreme bildet $\eta=0.1$ und wird als Einstellung vorgenommen.
 	
 	\begin{figure}[ht]
 		\centering
@@ -63,22 +63,22 @@ Im folgenden werden Hyperparameter beschrieben, sowie ihre Auswirkungen auf das 
 	
 	\item[Initialisierung der Gewichte]\hfill \\
 	%TODO: Bias und Gewichte verschieden
-	Vor Allem beim Trainieren von tiefen neuronalen Netzen spielt die Initialisierung der Gewichte eine entscheidende Rolle um das Auftreten des Problems der explodierenden beziehungsweise verschwindenden Gradienten entgegen zu wirken \cite{geron2017hands-on}. In \cite{Glorot10understandingthe} wird die Glorot-Initialisierung, ein Verfahren zur Initialisierung der Gewichte bei Verwendung der Sigmoid Aktivierungsfunktion, beschrieben. Hierbei werden die Werte der initialen Gewichte aus einer Normalverteilung $\mathcal{N}(\mu,\,\sigma^{2})\,$ mit $\mu = 0$ und $\sigma^{2}=\frac{1}{fan_{avg}}$ entnommen. Hierbei gilt: 
+	Vor Allem beim Trainieren von tiefen neuronalen Netzen spielt die Initialisierung der Gewichte eine entscheidende Rolle, um das Auftreten des Problems der explodierenden beziehungsweise verschwindenden Gradienten entgegen zu wirken \cite{geron2017hands-on}. In \cite{Glorot10understandingthe} wird die Glorot-Initialisierung, ein Verfahren zur Initialisierung der Gewichte bei Verwendung der Sigmoid Aktivierungsfunktion, beschrieben. Hierbei werden die Werte der initialen Gewichte aus einer Normalverteilung $\mathcal{N}(\mu,\,\sigma^{2})\,$ mit $\mu = 0$ und $\sigma^{2}=\frac{1}{fan_{avg}}$ entnommen. Hierbei gilt: 
 	\[
 	fan_{avg}=\frac{(fan_{in}+fan_{out})}{2}
 	\]
-	Wobei $fan_{in}$ der Anzahl an eingehenden Gewichte in einer Schicht entspricht und  $fan_{out}$ der Anzahl an Neuronen in der Schicht. Die Initialisierung der Gewichte in der vorliegenden Arbeit wurde  nach Glorot implementiert. Die Gewichte der Biase wurden mit 0 initialisiert.
-
+	Wobei $fan_{in}$ der Anzahl an eingehenden Gewichte in einer Schicht entspricht und  $fan_{out}$ der Anzahl an Neuronen in der Schicht. Die Initialisierung der Gewichte in der vorliegenden Arbeit wurde  nach Glorot implementiert. Die Gewichte der Biase wurden mit 0 initialisiert.\\
 	%TODO: Muss noch mathematisch und schön. sollten die Schichten und Gewichte mathematisch anotieren. Die anotation dann unter Aufgabe 2.1
-	Würden die Gewichte mit Null initialisiert werden, würde der Gradient für Alle Schichten, bis auf die Ausgabeschicht, Null sein. Ein Lernen würde daher nur sehr begrenzt stattfinden. Der Gradient für die Aktualisierung der Gewichte zwischen versteckter Schicht und Ausgabeschicht würde für alle partiellen Ableitungen gleich sein. Auch eine Initialisierung mit einer anderen Konstanten würde dazu führen, dass alle Gewichte in einer Schicht gleich aktualisiert werden würden. Sie könnten dann auch einfach durch ein einzelnes Neuron mit einer einzigen Verbindung ersetzt werden.
-	
+	\noindent \hspace*{7mm}
+	Würden die Gewichte mit Null initialisiert werden, würde der Gradient für alle Schichten, bis auf die Ausgabeschicht, Null sein. Ein Lernen würde daher nur sehr begrenzt stattfinden. Der Gradient für die Aktualisierung der Gewichte zwischen versteckter Schicht und Ausgabeschicht würde für alle partiellen Ableitungen gleich sein. Auch eine Initialisierung mit einer anderen Konstanten würde dazu führen, dass alle Gewichte in einer Schicht gleich aktualisiert werden würden. Sie könnten dann auch einfach durch ein einzelnes Neuron mit einer einzigen Verbindung ersetzt werden.\\
+	\noindent\hspace*{7mm}
 	Mithilfe der Verwendung eines \emph{Seeds} wird sicher gestellt, dass die zufällige Initialisierung der Gewichte bei jedem Durchlauf mit den gleichen Parametern die gleichen zufälligen Werte liefert. Das Netzwerk liefert also mit jedem Durchlauf bei gleichen Daten und Parametern die gleichen Ergebnisse. Somit wird die Reproduzierbarkeit im Netzwerk gefördert, was bei einer Fehlersuche und der Hyperparameter Optimierung hilfreich sein kann.
 	
 \end{description}
 \subsection{Neuronale Netze mit TensorFlow}
 %TODO: Beschreiben, welche Daten zum Trainieren genommen wurden
-Im Folgenden wird die Implementierung eines voll vernetzen Neuronalen Netzwerks mit Hilfe der \emph{TensorFlow} Bibliothek beschrieben \cite{tensorflow2015-whitepaper}. Unterstützend wurde für den Aufbau des neuronalen Netzes die \emph{Keras}-API verwendet, die seit \emph{TensorFlow} Version 2 standardmäßig integriert ist. 
-
+Im Folgenden wird die Implementierung eines voll vernetzen neuronalen Netzwerks mit Hilfe der \emph{TensorFlow} Bibliothek beschrieben \cite{tensorflow2015-whitepaper}. Unterstützend wurde für den Aufbau des neuronalen Netzes die \emph{Keras}-API verwendet, die seit \emph{TensorFlow} Version 2 standardmäßig integriert ist. \\
+\noindent \hspace*{7mm}
 Um die Daten für das Training des neuronalen Netzes effizient vorzubereiten, wurde die \emph{Dataset}-API verwendet. Mit Hilfe der \emph{Dataset}-API wurde das zufällige Mischen der Trainingsdaten, sowie die Bereitstellung in Form von \emph{Mini-Batches} implementiert. Die Verwendung der \emph{Dataset}-API hat noch zusätzlich den Vorteil, dass die Ausführung von Vorbereitungsschritten der Daten perfekt mit dem Training des neuronalen Netzes koordiniert und parallelisiert werden können.
 
 \subsubsection{Hyperparameter Suche}
@@ -98,4 +98,4 @@ Um ein optimales Modell für die vorliegenden Daten zu finden, wurde eine automa
 	\caption{\label{table:hyper} Parameterraum der Hyperparameter Suche}
 \end{table}
 
-Durch begrenzte Ressourcen wäre eine Evaluierung aller möglichen Hyperparameter-Kombinationen mittels einer \emph{Grid Search} nicht möglich. In der vorliegenden Arbeit wurde deshalb eine zufällige Suche nach \cite{randomSearch} implementiert. Das Sieger-Modell aus 10 zufälligen Hyperparameter-Kombinationen besteht aus 4 Hidden Layern mit jeweils 3 Neuronen. Die Lernrate wurde auf 0.1 festgelegt und das Netzwerk wurde ohne die Verwendung von Dropout trainiert. Als effektivste Aktivierungsfunktion hat sich die ELU-Funktion herausgestellt \cite{elu}. Das Sieger-Modell konnte eine Klassifizierungsgenauikgkeit von 85,11\% auf die Testdaten erreichen. Die Daten zum trainieren und testen des neuronalen Netzwerks wurden analog zu Aufgabenstellung \ref{section:Entscheidungsbäume} verwendet. Im Vergleich zu der Klassifizierungsgenauigkeit des Entscheidungsbaums aus \ref{variation_tree} schneidet das entworfene neuronale Netzwerk um 0,61 Prozentpunkte besser ab. Der Nachteil des neuronalen Netzwerks ist jedoch, dass die Entscheidungskriterien im Vergleich zum Entscheidungsbaum nur sehr schwer interpretierbar sind.
+Durch begrenzte Ressourcen wäre eine Evaluierung aller möglichen Hyperparameter-Kombinationen mittels einer \emph{Grid Search} nicht möglich. In der vorliegenden Arbeit wurde deshalb eine zufällige Suche nach \cite{randomSearch} implementiert. Das Sieger-Modell aus 10 zufälligen Hyperparameter-Kombinationen besteht aus 4 Hidden Layern mit jeweils 3 Neuronen. Die Lernrate wurde auf 0.1 festgelegt und das Netzwerk wurde ohne die Verwendung von Dropout trainiert. Als effektivste Aktivierungsfunktion hat sich die ELU-Funktion herausgestellt \cite{elu}. Das Sieger-Modell konnte eine Klassifizierungsgenauikgkeit von 85,11\% auf die Testdaten erreichen. Die Daten zum Trainieren und Testen des neuronalen Netzwerks wurden analog zu Aufgabenstellung \ref{section:Entscheidungsbäume} verwendet. Im Vergleich zu der Klassifizierungsgenauigkeit des Entscheidungsbaums aus \ref{variation_tree} schneidet das entworfene neuronale Netzwerk um 0,61 Prozentpunkte besser ab. Der Nachteil des neuronalen Netzwerks ist jedoch, dass die Entscheidungskriterien im Vergleich zum Entscheidungsbaum nur sehr schwer interpretierbar sind.

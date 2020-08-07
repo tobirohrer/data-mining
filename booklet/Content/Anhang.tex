@@ -41,15 +41,15 @@ Trotz dass der originale Baum ohne Tiefenbegrenzung sehr viel größer ist, als 
 \subsection{Quellcode zu Booklet Teil 1}
 \pagebreak
 \subsection{Ergänzungen zu Booklet Teil 2} \label{app:ergaenzung_booklet_2}
-Als Ergänzung zur Aufgabenstellung und der folgenden mathematischen Herleitung der Backpropagation ist das beschriebene Model in Abbildung \ref{fig:nn_schema} schematisch mit den entsprechenden Variablennamen dargestellt.\\\\
-\begin{figure}[ht]
+Als Ergänzung zur Aufgabenstellung und der folgenden mathematischen Herleitung der Backpropagation ist das beschriebene Model in Abbildung \ref{fig:nn_schema} schematisch mit den entsprechenden Variablennamen dargestellt.
+\begin{figure}[H]
 	\centering
-	\includegraphics[width = 0.8\textwidth]{Bilder/neuralNetwork.png}
+	\includegraphics[width = 0.7\textwidth]{Bilder/neuralNetwork.png}
 	\caption{Schematische Darstellung des betrachteten Neuronalen Netzes}
 	\label{fig:nn_schema}
 \end{figure}
 y: Beobachtete Werte der Stichprobe\\
-$\sigma$ = Sigmoid-Funktion
+$\sigma$ = Sigmoid-Funktion\\
 \begin{align*}
 dW_{2} &= \frac{\partial E}{\partial W_{2}}\\
 &= \frac{\partial E}{\partial z_{2}}\cdot \frac{\partial z_{2}}{\partial W_{2}}\\
@@ -144,7 +144,7 @@ db_{1} &= \delta_{1} \cdot \frac{\partial}{\partial b_{1}}\sigma(X\cdot W_{1}+b_
 \end{align*}
 \subsection{Quellcode zu Booklet Teil 2} \label{app:quellcode_booklet_2}
 \pagebreak
-\subsection{Ergänzende Tabellen zu Teil 3}
+\subsection{Ergänzende Tabellen zu Teil 3} \label{app:3_ergaenzungen}
 
 \begin{table}[H]
 	\centering
@@ -162,7 +162,8 @@ db_{1} &= \delta_{1} \cdot \frac{\partial}{\partial b_{1}}\sigma(X\cdot W_{1}+b_
 		min\_impurity\_decrease     & {[}0.0, 0.001, 0.002, 0.01, 0.1{]}     \\
 		min\_impurity\_split        & {[}0.0, 0.1, 0.2, 0.5, 0.8, 1, 2, 3{]}     \\ \hline
 	\end{tabular}
-	\caption{\label{table:parameter_grid_univariat} Parameterräume der univariaten \emph{Grid Search}}
+	\caption{Parameterräume der univariaten \emph{Grid Search}}
+	\label{table:parameter_grid_univariat}
 \end{table}
 
 \begin{table}[H]
@@ -232,7 +233,7 @@ Abbildung \ref{fig:svm_2d} zeigt einen zweidimensionalen \emph{Input Space} dess
 	\subfloat[drei-dimensionaler Feature-Space]{\includegraphics[width=0.40\textwidth]{Bilder/svm_3d.png}\label{fig:svm_3d}}
 	\caption{Transformation der Daten durch Kernfuntionen (\cite{2018_mello_ponti})}
 \end{figure}
-Tabelle \ref{tab:svm_results_gridSearch} zeigt die genauen Parameterräume, die wurch das Grid Search Verfahren untersucht wurden. Zudem sieht man für jeden Kernel die besten Parameter und die Genauigkeit des trainierten Modells. Der Kerneltyp \emph{precomputed} wurde hierbei nicht beachtet.
+Tabelle \ref{tab:svm_results_gridSearch} zeigt die genauen Parameterräume, die wurch das \emph{Grid Search} Verfahren untersucht wurden. Zudem sieht man für jeden Kernel die besten Parameter und die Genauigkeit des trainierten Modells. Der Kerneltyp \emph{precomputed} wurde hierbei nicht beachtet.
 \begin{table}[H]
 	\begin{tabular}{lllll}
 		\hline
