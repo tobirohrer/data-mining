@@ -111,7 +111,7 @@ Eine Möglichkeit der Vermeidung der Überanpassung bietet das \emph{Cost-Comple
 \noindent \hspace*{7mm}
 Dabei ist zu beachten, dass die Bäume stärker beschnitten werden, je höher der gegebene Penalisierungs-Term ist, wohingegen die ursprüngliche Größe keinen Einfluss auf das Endergebnis hat (siehe auch \ref{app:abb_booklet_1}).\\
 \noindent \hspace*{7mm}
-Das Pruning hat Auswirkungen auf die Modellgüte, indem es die Anpassung an die Trainingsdaten reguliert. Wird der Penalisierungs-Term zu hoch gesetzt, besteht die Gefahr der Unteranpassung, ein sehr niedriger Term führt zur Überanpassung. In Abbildung \ref{fig:ccp_accuracyVsAlpha} ist beispielhaft für einen Entscheidungsbaum mit Standard-Einstellungen die Trainings- und Testgenauigkeit (Accuracy) für verschiedene Pruning-Parameter $\alpha$ dargestellt.
+Das Pruning hat Auswirkungen auf die Modellgüte, indem es die Anpassung an die Trainingsdaten reguliert. Wird der Penalisierungs-Term zu hoch gesetzt, besteht die Gefahr der Unteranpassung, ein sehr niedriger Term führt zur Überanpassung. In Abbildung \ref{fig:ccp_accuracyVsAlpha} ist beispielhaft für einen Entscheidungsbaum mit Standard-Einstellungen die Trainings- und Testgenauigkeit (Accuracy) für verschiedene Pruning-Parameter $\alpha$ dargestellt. Wird ein vollständiger Entscheidungsbaum mit Standard-Einstellungen mit \emph{ccp\_alpha} = 0.00025 beschnitten, wird eine Klassifizierungsgenauigkeit von 85,07\% erreicht.
 
 \begin{figure}[h]
 	\centering
